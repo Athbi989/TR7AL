@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trhal</title>
+    <link rel="icon" href="./globe.png" />
+    <!-- Awesome Fonts (For Icons only) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+    <!-- My Style's CSS -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/helpers.css" />
+    <link rel="stylesheet" href="./assets/css/forms.css" />
+    <style>
+      /* Respoinve Caarddd (that's so annoying) */
+
+      @media only screen and (max-width: 1650px) {
+        .card-img-cover img {
+          width: 15rem;
+        }
+      }
+
+      @media only screen and (max-width: 1100px) {
+        .card-img-cover img {
+          width: 15rem;
+        }
+      }
+
+      @media only screen and (max-width: 700px) {
+        .card-img-cover img {
+          width: 12rem;
+        }
+      }
+
+      @media only screen and (max-width: 500px) {
+        .card-img-cover img {
+          width: 10rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body dir="rtl">
+    <!-- Preloader -->
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+    <!-- Main - Header (flexboxed) -->
+    <header>
+      <div class="flex-header">
+        <!-- Right side of header -->
+        <div class="right-side">
+          <div class="tilte-container">
+            <h1>تّرحال</h1>
+            <img width="42" src="./globe.png" alt="" />
+          </div>
+        </div>
+        <!-- Left side of header -->
+        <div class="left-side">
+          <!-- User Settings Labels -->
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="./assets/flags/kw.png" width="16" /> دينار</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#"><img src="./assets/flags/kw.png" width="16" /> دينار </a>
+              <a class="dropdown-item" href="#"><img src="./assets/flags/ae.png" width="16" /> درهم </a>
+              <a class="dropdown-item" href="#"><img src="./assets/flags/sa.png" width="16" /> ريال </a>
+            </div>
+          </div>
+          <!-- Light Dark Switcher -->
+          <div class="SwitcherDiv">
+            <input type="checkbox" class="modrenSwitch" onchange="switchTheme(this.checked)" id="chk" />
+            <label class="switch" for="chk">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+              <div class="ball"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sidebar (flexboxed) -->
+    <nav class="navbar-trhal">
+      <ul class="navbar-nav">
+        <li class="logo">
+          <a href="#" class="nav-link">
+            <span class="link-text logo-text">Hive it </span>
+            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plane-departure" class="svg-inline--fa fa-plane-departure fa-w-20" role="img" viewBox="0 0 640 512">
+              <path
+                fill="currentColor"
+                d="M624 448H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h608c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16zM80.55 341.27c6.28 6.84 15.1 10.72 24.33 10.71l130.54-.18a65.62 65.62 0 0 0 29.64-7.12l290.96-147.65c26.74-13.57 50.71-32.94 67.02-58.31 18.31-28.48 20.3-49.09 13.07-63.65-7.21-14.57-24.74-25.27-58.25-27.45-29.85-1.94-59.54 5.92-86.28 19.48l-98.51 49.99-218.7-82.06a17.799 17.799 0 0 0-18-1.11L90.62 67.29c-10.67 5.41-13.25 19.65-5.17 28.53l156.22 98.1-103.21 52.38-72.35-36.47a17.804 17.804 0 0 0-16.07.02L9.91 230.22c-10.44 5.3-13.19 19.12-5.57 28.08l76.21 82.97z"
+              />
+            </svg>
+          </a>
+        </li>
+        <!-- Sidebar Items (also flexboxed) -->
+        <li class="nav-item">
+          <a href="./index.html" class="nav-link">
+            <i class="fa fa-home clx"></i>
+            <span class="side-menu__label">رئيسي</span>
+            <!-- <span class="nav-tip">الصفحة الرئيسية</span> -->
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./popular.html" class="nav-link nav-active">
+            <i class="fas fa-fire clx"></i>
+            <span class="side-menu__label">الشائع</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./explore.html" class="nav-link">
+            <i class="fas fa-search clx"></i>
+            <span class="side-menu__label">إكتشف</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./map.html" class="nav-link">
+            <i class="fas fa-map clx"></i>
+            <span class="side-menu__label">الخريطة</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./hotels.html" class="nav-link">
+            <i class="fas fa-hotel clx"></i>
+            <span class="side-menu__label">الفنادق</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./flights.html" class="nav-link">
+            <i class="fas fa-plane clx"></i>
+            <span class="side-menu__label">الطيران</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./currency.html" class="nav-link">
+            <i class="fas fa-coins clx"></i>
+            <span class="side-menu__label">العملات</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./covid19.html" class="nav-link">
+            <i class="fas fa-pills clx"></i>
+            <span class="side-menu__label">كوفيد-19</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="side-menu__label"></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- All Page Content gose her -->
+      <div class="container-cl">
+        <div class="block-title">
+          <!-- Background -->
+          <div class="backgroun-title backgroun-sec"></div>
+          <div style="margin-top: -50px">
+            <div class="big-title">الوجهات الشائعة</div>
+          </div>
+        </div>
+        <!-- Pouplar Destnations -->
+
+        <!-- Asia -->
+        <h2>قارة اسيا</h2>
+        <div class="container" style="flex-wrap: wrap">
+          <div class="card">
+            <a href="./view.html?id=MY">
+              <div class="card-img-cover">
+                <img src="./assets/images/cites/Maldives.jpg" />
+                <span class="card-details-cover">
+                  <div class="card-details">Maldives</div>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <div class="card">
+            <a href="./view.html?id=TH">
+              <div class="card-img-cover">
+                <img src="./assets/images/cites/Thailand.jpg" />
+                <span class="card-details-cover">
+                  <div class="card-details">Thailand</div>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <div class="card">
+            <a href="./view.html?id=AE">
+              <div class="card-img-cover">
+                <img src="./assets/images/cites/dubai.jpg" />
+                <span class="card-details-cover">
+                  <div class="card-details">Dubai</div>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <div class="card">
+            <a href="./view.html?id=HK">
+              <div class="card-img-cover">
+                <img src="./assets/images/cites/HongKong.jpg" />
+                <span class="card-details-cover">
+                  <div class="card-details">HongKong</div>
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- Europe -->
+        <h2>قارة اوربا</h2>
+        <div class="container" style="flex-wrap: wrap">
+          <div class="card">
+            <a href="./view.html?id=GB">
+              <div class="card-img-cover">
+                <img src="./assets/images/cites/uk.jpg" />
+                <span class="card-details-cover">
+                  <div class="card-details">United Kingdom</div>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <div class="card">
+            <a href="./view.html?id=ES">
+              <div class="card-img-cover">
+                <img src="./assets/images/cites/spain.jpg" />
+                <span class="card-details-cover">
+                  <div class="card-details">Spain</div>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <div class="card">
+            <a href="./view.html?id=FR">
+              <div class="card-img-cover">
+                <img src="./assets/images/cites/france.jpg" />
+                <span class="card-details-cover">
+                  <div class="card-details">France</div>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <div class="card">
+            <a href="./view.html?id=IT">
+              <div class="card-img-cover">
+                <img src="./assets/images/cites/rome.jpg" />
+                <span class="card-details-cover">
+                  <div class="card-details">Rome</div>
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- Africa -->
+        <h2>قارة افريقيا</h2>
+        <div class="container" style="flex-wrap: wrap">
+          <div class="card">
+            <a href="./view.html?id=ZA">
+              <div class="card-img-cover">
+                <img src="./assets/images/cites/South_Africa.jpg" />
+                <span class="card-details-cover">
+                  <div class="card-details">South Africa</div>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <div class="card">
+            <a href="./view.html?id=ZM">
+              <div class="card-img-cover">
+                <img src="./assets/images/cites/Zambia.jpg" />
+                <span class="card-details-cover">
+                  <div class="card-details">Zambia</div>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <div class="card">
+            <a href="./view.html?id=EG">
+              <div class="card-img-cover">
+                <img src="./assets/images/cites/Egypt.jpg" />
+                <span class="card-details-cover">
+                  <div class="card-details">Egypt</div>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <div class="card">
+            <a href="./view.html?id=NA">
+              <div class="card-img-cover">
+                <img src="./assets/images/cites/Namibia.jpg" />
+                <span class="card-details-cover">
+                  <div class="card-details">Namibia</div>
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/countries.js"></script>
+    <script src="./assets/js/forms.js"></script>
+  </body>
+</html>

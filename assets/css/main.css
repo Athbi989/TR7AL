@@ -1,0 +1,1294 @@
+/* 
+    App : TRHAL
+    Description : project for code.kw ( TRHAL ) 
+    About this file : simple clean ui & trying to make best user friendly experience
+    Other : --> Everything created from scratch
+    Ofcourse with some help ( sources : google - w3s - csstricks )
+    and last but not least ( app.code.kw )
+*/
+
+/* Imported/Exported Css*/
+
+@font-face {
+  font-family: HiveFont;
+  src: url(HiveFont.ttf);
+}
+
+/* -------------------------- Main Css --------------------------  */
+
+.dropdown {
+  display: none;
+}
+
+:root {
+  --text-primary: #343a40;
+  --text-secondary: #ececec;
+  --hive-primary: #ffffff;
+  --hive-secondary: #141418;
+  --transition-speed: 200ms;
+}
+
+body {
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  background-color: var(--hive-primary);
+  font-family: HiveFont;
+  text-align: right;
+}
+
+main {
+  padding: 1rem;
+  height: 100vh;
+  margin-right: 5rem;
+  /* margin-left: 5rem; */
+  margin-top: 5rem;
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #6649b8;
+}
+
+div::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+div::-webkit-scrollbar-track {
+  background: #1e1e2417;
+}
+
+div::-webkit-scrollbar-thumb {
+  background: #6649b8;
+}
+
+/* -------------------------- Header --------------------------  */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4rem;
+  background: #3b3085;
+  z-index: 999;
+  color: var(--text-secondary);
+}
+
+.flex-header {
+  height: 100%;
+  display: flex;
+  margin-right: 5rem;
+  align-items: center;
+}
+
+.right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: auto;
+  margin-right: 1rem;
+}
+
+.left-side {
+  display: flex;
+  justify-content: space-between;
+  margin-right: auto;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.tilte-container {
+  display: flex;
+  align-items: center;
+}
+
+.tilte-container img {
+  margin-right: 10px;
+}
+
+.user-logo {
+  width: 35px;
+  float: right;
+  margin-left: 15px;
+}
+
+.SwitcherDiv {
+  margin-right: 25px;
+}
+
+.user-logo:hover {
+  transform: scale(1.1);
+}
+
+/* -------------------------- Sidebar --------------------------  */
+
+.navbar-trhal {
+  padding: 0px !important;
+  z-index: 500;
+  position: fixed;
+  background-color: #3b3085;
+  color: white;
+  transition: width 600ms ease;
+  overflow: hidden;
+  box-shadow: 7px 13px 20px 0 rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+.nav-link img {
+  font-family: "FontAwesome";
+  font-size: 50px;
+  margin-left: 1rem;
+  font-style: unset;
+  width: 43px;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-item {
+  font-size: 0.8rem;
+  width: 100%;
+  display: block;
+  margin: 0 0 4px;
+  cursor: pointer;
+  float: none;
+  margin: 0 auto;
+}
+
+.nav-item:last-child {
+  margin-top: auto;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  /* filter: grayscale(100%) opacity(0.7); */
+  transition: var(--transition-speed);
+}
+
+.nav-tip {
+  position: fixed;
+  transform: scale(0) translateX(0);
+  transition: transform 0.3s ease-out;
+  opacity: 0.8;
+  color: #12181b;
+  background: #b2becd;
+  padding: 4px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  width: auto;
+  display: block;
+}
+
+.nav-link:hover {
+  filter: grayscale(0%) opacity(1);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.nav-link:hover .nav-tip {
+  transform: scale(1) translateX(-5em);
+  transition: transform 0ms ease-in;
+}
+
+.link-text {
+  display: none;
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+
+.nav-link svg {
+  width: 2rem;
+  min-width: 2rem;
+  margin: 0 1.5rem;
+}
+
+.logo {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  font-size: 1.5rem;
+  letter-spacing: 0.3ch;
+  width: 100%;
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+
+.logo svg {
+  transform: rotate(0deg);
+  transition: var(--transition-speed);
+}
+
+.logo-text {
+  display: inline;
+  position: absolute;
+  left: -999px;
+  transition: var(--transition-speed);
+}
+
+.clx {
+  font-size: 30px;
+}
+
+.navbar-trhal:hover .logo svg {
+  transform: rotate(-30deg);
+}
+
+.nav-item:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.nav-active i,
+.nav-active span {
+  color: #7ca0c5;
+}
+/* -------------------------- Container - Cards --------------------------  */
+
+.container-cl {
+  display: flex;
+  flex-direction: column;
+  padding-right: 5%;
+}
+
+.backgroun-title {
+  background-image: url(../backgrounds/boat.png);
+  background-position: center center;
+  padding-top: 22.43589%;
+  background-size: cover;
+}
+
+.backgroun-sec {
+  background-image: url(../backgrounds/beach.png);
+}
+
+.backgroun-third {
+  background-image: url(../backgrounds/city_water.png);
+}
+
+.backgroun-map-light {
+  background-image: url(../backgrounds/map-light.png);
+}
+
+.block-title {
+  display: block;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.main-title {
+  border: 1px #b2b2b29c solid;
+  border-radius: 10px;
+  padding: 3px;
+  width: 75%;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.container input {
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+.card-rounded {
+  color: white;
+  border-radius: 12px;
+  width: 100%;
+  background-color: #212022;
+  display: flex;
+  height: 195px;
+  max-width: 685px;
+}
+
+.card-info {
+  font-size: 15px;
+  line-height: 39px;
+  margin-bottom: 12px;
+  font-weight: 400;
+  padding: 6px;
+  width: 50%;
+}
+
+.card-img {
+  width: 50%;
+  margin-left: -1px;
+}
+
+.card-img img {
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* Card Part two */
+
+.card {
+  position: relative;
+  margin: 0.5rem 0 1rem 0;
+  background-color: #fff;
+  transition: box-shadow 0.25s;
+  border-radius: 2px;
+  box-shadow: 0 0 2rem -1rem rgba(0, 0, 0, 0.05);
+  margin-left: 15px;
+}
+
+.card-img-cover {
+  position: relative;
+}
+
+.card-details-cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: background 250ms;
+}
+
+.card-details {
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  box-sizing: border-box;
+  color: #fff;
+  display: block;
+  font-weight: 700;
+  padding: 16px;
+  width: 100%;
+  border-radius: 15px;
+  text-align: left;
+  position: absolute;
+  font-size: 1.2rem;
+}
+.card-img-cover img {
+  border-radius: 15px;
+  width: 18rem;
+}
+
+.card:hover .card-details {
+  background: linear-gradient(to top, rgb(47 42 42), rgba(0, 0, 0, 0));
+}
+
+/* Tip Cards */
+.tip-container {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.tip-colmun {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tip {
+  margin-top: 10px;
+  z-index: 10;
+  color: white;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #212022;
+}
+
+.tip i {
+  color: #e3e3a4;
+}
+
+/* Overly Cards (Sections 2) */
+.ovl__card {
+  position: relative;
+  margin: 0.5rem 0 1rem 0;
+  background-color: #fff;
+  transition: box-shadow 0.25s;
+  border-radius: 2px;
+  box-shadow: 0 0 2rem -1rem rgba(0, 0, 0, 0.05);
+  margin-left: 15px;
+}
+
+.ovl__card:hover {
+  box-shadow: 0px 8px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+.ovl__img-cover {
+  position: relative;
+}
+
+.ovl__img-cover img {
+  display: block;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 5px;
+  width: 17rem;
+}
+
+.ovl__overly {
+  display: initial;
+  background: rgb(0 0 0 / 33%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 5px;
+}
+
+.ovl__header {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  justify-content: flex-end;
+  width: 100%;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.ovl__title {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  margin-right: -5px;
+  font-size: 1.4rem;
+  color: aliceblue;
+}
+
+.ovl__header .flag {
+  /* width: 32px;
+    height: 32px; */
+  margin-left: 5px;
+  width: 24px;
+}
+
+.ovl__header .info {
+  margin-left: 5px;
+  font-size: 1.2rem;
+  color: aliceblue;
+}
+.ovl__header .flag img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+/* --------------- View Trhal --------------- */
+.view-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.view-main .right {
+  flex: 2;
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+}
+
+.view-main .right container {
+  height: 100vh;
+
+  width: 95%;
+}
+
+.view-main .left {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.line-ver {
+  border: 1px solid #c2c2c257;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.line-hr {
+  border: 1px solid rgb(147 147 147 / 28%);
+  transform: matrix(0, 1, -1, 0, 0, 0);
+  width: 69.58px;
+}
+
+.numberd-info {
+  margin-top: 20px;
+}
+
+.numberd-info h3,
+h4 {
+  margin-bottom: 5px;
+  margin-top: 0px;
+}
+
+/* --------------- Cards View Trhal --------------- */
+
+.map-card {
+  height: 100%;
+  margin-top: 25px;
+  width: 392px;
+  background: #ffffff;
+  border: 1px solid #d9cece;
+  box-sizing: border-box;
+  border-radius: 18px;
+}
+
+.corner-card {
+  width: 392px;
+  height: 193.06px;
+  background: #ffffff;
+  border: 1px solid #d9cece;
+  box-sizing: border-box;
+  border-radius: 18px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.corner-card .title {
+  display: flex;
+  align-items: center;
+}
+
+.corner-card .title img {
+  margin-left: 5px;
+  width: 26px;
+}
+
+/* --------------- Header View Trhal --------------- */
+.view-header {
+  width: 100%;
+  height: 4rem;
+  background: #3837378c;
+  border-radius: 5px;
+  display: flex;
+}
+
+.view-header .menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+.view-header .menu .item {
+  background-color: #34343514;
+  border: none;
+  color: white;
+  /* border-radius: 5px; */
+  padding: 13px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 5px;
+  flex: 1;
+  box-shadow: -1px 2px 13px #0000004d;
+}
+
+.view-header .menu .item:hover {
+  background-color: #1d242f88;
+}
+
+/* --------------- Banners --------------- */
+
+.big-banner {
+  margin-top: 15px;
+  width: 100%;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  line-height: 0;
+  min-height: 238px;
+}
+
+.big-banner .title {
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 64px;
+  color: white;
+  font-size: 32px;
+}
+
+.big-banner .subtitle {
+  color: #dadada;
+  font-size: 17px;
+  margin-top: 35px;
+}
+
+.big-banner .overly {
+  background: radial-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0)), linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+  flex-direction: column;
+  transition: background 250ms;
+  display: initial;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 5px;
+  padding: 16px 24px;
+}
+
+.big-banner .img-country {
+  object-fit: cover;
+  object-position: center;
+  max-height: 238px;
+  width: 100%;
+}
+
+/*  --------------- Cards Type 1 --------------- */
+
+.card__ty1 {
+  flex: 0 24%;
+  margin: 1rem 0.25em;
+  height: 204px;
+  background: #ffffff;
+  border: 1px solid rgba(185, 185, 185, 0.43);
+  border-radius: 14px;
+}
+
+.card__ty1:hover {
+  box-shadow: 0 10px 20px 0 rgb(0 0 0 / 8%);
+}
+
+.card__ty1 .img {
+  width: 100%;
+}
+
+.card__ty1 .img img {
+  object-fit: cover;
+  object-position: center;
+  height: 110px;
+  width: 100%;
+}
+
+.card__ty1 .info {
+  margin-right: 5px;
+  text-align: right;
+  overflow: hidden;
+  height: 80px;
+}
+
+.card__ty1 .info .sub1 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.card__ty1 .info .sub2 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/*  --------------- Cards type 2 --------------- */
+
+.card__ty2 {
+  flex: 0 49%;
+  margin: 1rem 0.25em;
+  height: 211px;
+  background: #ffffff;
+  border: 1px solid rgba(185, 185, 185, 0.43);
+  border-radius: 25px;
+  display: flex;
+}
+
+.card__ty2 .img {
+  width: 100%;
+  flex: 1;
+}
+
+.card__ty2 .img img {
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 25px 0px 0px 0px;
+}
+
+.card__ty2 .info {
+  margin-left: 5px;
+  text-align: left;
+  padding: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__ty2 .info .sub1 {
+  font-size: 20px;
+  font-weight: 600;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card__ty2 .info .sub2 {
+  font-size: 15px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card__ty2 .info .sub3 {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.card__ty2 .info .rating_label {
+  color: #826c01;
+}
+
+.card__ty2 .info .price {
+  font-size: 17px;
+  color: #989898;
+  overflow: hidden;
+  height: 84px;
+}
+
+/*  --------------- Cards type 3 --------------- */
+.flight_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: overlay;
+  height: 400px;
+}
+
+.flight_single:first-child {
+  border-radius: 15px 15px 0px 0px;
+}
+
+.flight_single:last-child {
+  box-shadow: 0 10px 20px 0 rgb(0 0 0 / 8%);
+}
+
+.flight_single {
+  display: flex;
+  width: 45rem;
+  border: 1px solid #bcbcbc85;
+  padding: 20px;
+}
+
+.flight_single .part_left {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.flight_single .part_right {
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.flight_single .img-icon {
+  padding-right: 10px;
+  height: 45px;
+  width: 50px;
+}
+
+.flight_single .i_con {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.flight_single .i0 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-top: -13px;
+}
+
+.flight_single .i1 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.flight_single .i2 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: -10px;
+  color: #4a4a4a;
+}
+
+.flight_single .bt {
+  font-size: 13px;
+  width: auto;
+  padding: 3px;
+  border: none;
+  color: black;
+  cursor: pointer;
+  border: 1px solid #d6d6d6;
+  border-radius: 5px;
+  transition: 0.2s ease all;
+  text-decoration: none;
+}
+
+/*  --------------- Detalis Section --------------- */
+
+.detail_sizing {
+  width: 135px;
+  height: 130px;
+  border-radius: 25px;
+}
+
+.detail_sizing_img {
+  width: 135px !important;
+  height: 130px !important;
+}
+
+.detail_sizing_font {
+  margin-left: 5px;
+  font-size: 1.4rem;
+  color: aliceblue;
+  font-weight: 700;
+}
+
+/*  --------------- Attraction --------------- */
+#attraction_catgs .ovl__card {
+  flex: 1;
+}
+
+#attraction_catgs .ovl__img-cover img {
+  height: 120px;
+  width: 100%;
+}
+
+#attraction_catgs .ovl__title {
+  font-weight: 900;
+  text-align: center;
+  text-shadow: -1px 1px 20px #000000;
+}
+
+#atrraction_json {
+  display: flex;
+  flex-wrap: wrap;
+  height: 450px;
+  margin-bottom: 10rem;
+  flex: 6;
+  padding: 10px;
+  justify-content: center;
+}
+
+#atrraction_json .card__ty2 {
+  height: 164px;
+  flex-basis: 31.333333%;
+  position: relative;
+  display: block;
+  min-width: 180px;
+  transition: 0.4s;
+}
+
+#atrraction_json .card__ty2:hover {
+  box-shadow: -4px 4px 20px -1px rgb(0 0 0 / 0%), 5px 3px 20px 0px rgba(0, 0, 0, 0.14), 1px -2px 20px 0px rgba(0, 0, 0, 0.12);
+}
+
+#atrraction_json .card__ty2:hover .img {
+  filter: blur(1px);
+}
+
+#atrraction_json .card__ty2 .info {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  width: 95%;
+  padding: 0;
+  margin-left: 0;
+  margin-top: 20px;
+}
+
+#atrraction_json .card__ty2 .img {
+  position: relative;
+  height: 100%;
+}
+
+#atrraction_json .card__ty2 .img img {
+  border-radius: 25px;
+}
+
+#atrraction_json .card__ty2 .overly {
+  display: initial;
+  background: rgb(0 0 0 / 58%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 25px;
+
+  /* backdrop-filter: blur(2px);
+      background: rgb(0 0 0 / 38%); */
+}
+
+#atrraction_json .card__ty2 .info .price {
+  height: auto;
+  font-size: 13px;
+}
+
+#atrraction_json .card__ty2 .info .sub1 {
+  font-size: 17px;
+}
+
+#atrraction_json .card__ty2 .info .sub1 span {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#atrraction_json .card__ty2 .info .sub1 span img {
+  padding-right: 5px;
+}
+
+#atrraction_json .card__ty2 .info .sub2 {
+  font-size: 13px;
+}
+
+#atrraction_json .clickable_icon {
+  width: 24px;
+  width: 24px;
+  color: #ffffff;
+  box-shadow: 0px 0px 2px #fff;
+  top: 7.7rem;
+  position: absolute;
+  z-index: 2;
+}
+
+.left-arrow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.focrc-small-icon {
+  width: 22px !important;
+}
+
+/*  --------------- icon --------------- */
+
+.clickable_icon {
+  height: 24px;
+  border-radius: 60px;
+  box-shadow: 0px 0px 2px #888;
+  padding: 0.6em 0.6em;
+  color: #2f2f2f;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.clickable_icon:hover {
+  background: #2f2f2f26;
+}
+
+/*  --------------- HEADEREXP --------------- */
+
+.flex {
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  background-color: white;
+  position: relative;
+  /* top: 49%; */
+  /* right: 10%; */
+  z-index: 99;
+  /* margin: -25px 0 0 -25vw; */
+  /* padding: 10px; */
+}
+
+.flex ul {
+  height: 100%;
+  border-radius: 15px;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.flex ul li {
+  flex: 1;
+  list-style: none;
+  text-align: center;
+  position: relative;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 0.5s ease;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+}
+
+.flex ul li:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #06463bfa;
+}
+
+.flex ul li:hover:nth-of-type(5) ~ .bar {
+  left: 0.1%;
+}
+
+.flex ul li:hover:nth-of-type(4) ~ .bar {
+  left: 21.1%;
+}
+
+.flex ul li:hover:nth-of-type(3) ~ .bar {
+  left: 41.1%;
+}
+
+.flex ul li:hover:nth-of-type(2) ~ .bar {
+  left: 61.1%;
+}
+
+.flex ul li:hover:nth-of-type(1) ~ .bar {
+  left: 80.1%;
+}
+
+.flex ul .bar {
+  width: 18%;
+  background-color: #8ba8f8;
+  height: 5px;
+  z-index: 1;
+  position: absolute;
+  left: 80.1%;
+  transition: 0.5s ease;
+}
+
+.dribbble {
+  position: absolute;
+  right: 3%;
+  top: 4%;
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.dribbble img {
+  max-width: 1.5em;
+  margin-right: 0.6em;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li img {
+  max-width: 1.5em;
+  z-index: 5;
+}
+
+li .ball {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #8ba8f8;
+  border-radius: 50%;
+  left: 9%;
+  bottom: 7%;
+  opacity: 0;
+  transition: 0.2s ease-in;
+}
+
+/* -------------------------- Text - Titles --------------------------  */
+
+.big-title {
+  font-size: 3rem;
+}
+
+/* ------------------Small screens------------------ */
+@media only screen and (max-width: 600px) {
+  .navbar-trhal {
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
+  }
+  .logo {
+    display: none;
+  }
+  .navbar-nav {
+    flex-direction: row;
+    padding-top: 15px;
+    padding-right: 0px;
+  }
+  /* .left-side {
+    display: none !important;
+  } */
+  .nav-link {
+    justify-content: center;
+  }
+  main {
+    margin: 0;
+    margin-top: 5rem;
+  }
+  .navbar-nav .nav-link {
+    padding-right: 9px;
+    padding-left: 15px;
+    padding-bottom: 20px;
+  }
+  .container-cl {
+    padding-right: 0;
+  }
+  .main-title {
+    width: 100%;
+  }
+  .big-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+  .card-info {
+    font-size: 13px;
+    width: 100%;
+  }
+  .card-img {
+    width: 0%;
+  }
+}
+
+@media only screen and (max-width: 1047px) {
+  .card-info {
+    font-size: 13px;
+    width: 100%;
+  }
+  .card-img {
+    width: 0%;
+  }
+}
+
+/* -------------------------- Dark Mode Css --------------------------  */
+
+html[data-theme="dark"] body {
+  background-color: #1b1a1a;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .main-title {
+  border: 1px #262626 solid;
+}
+
+html[data-theme="dark"] .input-search {
+  border: 1px #262626 solid;
+  background: #131313;
+  color: white;
+}
+
+html[data-theme="dark"] .map-card {
+  border: 1px #262626 solid;
+  background: #131313;
+  color: white;
+}
+
+html[data-theme="dark"] .autocomplete-items div {
+  border-bottom: 0;
+  background-color: #262626;
+}
+
+html[data-theme="dark"] .autocomplete-items {
+  border: 0;
+}
+
+html[data-theme="dark"] .backgroun-title {
+  /* filter: grayscale(50%); */
+  filter: opacity(0.5);
+}
+
+html[data-theme="dark"] .navbar-trhal {
+  background-color: #131313;
+}
+html[data-theme="dark"] header,
+.datepicker {
+  background: #131313;
+}
+
+html[data-theme="dark"] .card {
+  background-color: #1b1a1a;
+}
+
+html[data-theme="dark"] .flex {
+  background-color: #1b1a1a;
+}
+
+html[data-theme="dark"] .ovl__card {
+  background-color: #1b1a1a;
+}
+
+html[data-theme="dark"] .cl-shadow {
+  background-color: #1b1a1a;
+}
+
+html[data-theme="dark"] .clickable_icon {
+  color: white;
+}
+
+html[data-theme="dark"] #form_input {
+  background-color: #1b1a1a;
+  border: 1px #262626 solid;
+  box-shadow: 0 0 black;
+}
+
+html[data-theme="dark"] .flex {
+  background-color: #1b1a1a;
+}
+
+html[data-theme="dark"] .card__ty1 {
+  background-color: #1b1a1a;
+  border: 1px #262626 solid;
+}
+
+html[data-theme="dark"] .card__ty2 {
+  background-color: #1b1a1a;
+  border: 1px #262626 solid;
+}
+
+html[data-theme="dark"] .flight_single {
+  background-color: #1b1a1a;
+}
+html[data-theme="dark"] .flight_single .bt {
+  background-color: #1b1a1a;
+  color: white;
+}
+
+html[data-theme="dark"] .corner-card {
+  background-color: #1b1a1a;
+  border: 1px #262626 solid;
+}
+
+html[data-theme="dark"] .flex ul li:hover,
+.button-regular {
+  background-color: #1b1a1a;
+}
+
+/* ------------------Large screens------------------ */
+@media only screen and (min-width: 600px) {
+  .navbar-trhal {
+    top: 0;
+    width: 5rem;
+    height: 100vh;
+  }
+}

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trhal</title>
+    <link rel="icon" href="./globe.png" />
+    <!-- Awesome Fonts (For Icons only) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+    <!-- My Style's CSS -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/helpers.css" />
+    <link rel="stylesheet" href="./assets/css/forms.css" />
+  </head>
+
+  <body dir="rtl">
+    <!-- Preloader -->
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+    <!-- Main - Header (flexboxed) -->
+    <header>
+      <div class="flex-header">
+        <!-- Right side of header -->
+        <div class="right-side">
+          <div class="tilte-container">
+            <h1>تّرحال</h1>
+            <img width="42" src="./globe.png" alt="" />
+          </div>
+        </div>
+        <!-- Left side of header -->
+        <div class="left-side">
+          <!-- User Settings Labels -->
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="./assets/flags/kw.png" width="16" /> دينار</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#"><img src="./assets/flags/kw.png" width="16" /> دينار </a>
+              <a class="dropdown-item" href="#"><img src="./assets/flags/ae.png" width="16" /> درهم </a>
+              <a class="dropdown-item" href="#"><img src="./assets/flags/sa.png" width="16" /> ريال </a>
+            </div>
+          </div>
+          <!-- Light Dark Switcher -->
+          <div class="SwitcherDiv">
+            <input type="checkbox" class="modrenSwitch" onchange="switchTheme(this.checked)" id="chk" />
+            <label class="switch" for="chk">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+              <div class="ball"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sidebar (flexboxed) -->
+    <nav class="navbar-trhal">
+      <ul class="navbar-nav">
+        <li class="logo">
+          <a href="#" class="nav-link">
+            <span class="link-text logo-text">Hive it </span>
+            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plane-departure" class="svg-inline--fa fa-plane-departure fa-w-20" role="img" viewBox="0 0 640 512">
+              <path
+                fill="currentColor"
+                d="M624 448H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h608c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16zM80.55 341.27c6.28 6.84 15.1 10.72 24.33 10.71l130.54-.18a65.62 65.62 0 0 0 29.64-7.12l290.96-147.65c26.74-13.57 50.71-32.94 67.02-58.31 18.31-28.48 20.3-49.09 13.07-63.65-7.21-14.57-24.74-25.27-58.25-27.45-29.85-1.94-59.54 5.92-86.28 19.48l-98.51 49.99-218.7-82.06a17.799 17.799 0 0 0-18-1.11L90.62 67.29c-10.67 5.41-13.25 19.65-5.17 28.53l156.22 98.1-103.21 52.38-72.35-36.47a17.804 17.804 0 0 0-16.07.02L9.91 230.22c-10.44 5.3-13.19 19.12-5.57 28.08l76.21 82.97z"
+              />
+            </svg>
+          </a>
+        </li>
+        <!-- Sidebar Items (also flexboxed) -->
+        <li class="nav-item">
+          <a href="./index.html" class="nav-link">
+            <i class="fa fa-home clx"></i>
+            <span class="side-menu__label">رئيسي</span>
+            <!-- <span class="nav-tip">الصفحة الرئيسية</span> -->
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./popular.html" class="nav-link">
+            <i class="fas fa-fire clx"></i>
+            <span class="side-menu__label">الشائع</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./explore.html" class="nav-link">
+            <i class="fas fa-search clx"></i>
+            <span class="side-menu__label">إكتشف</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./map.html" class="nav-link">
+            <i class="fas fa-map clx"></i>
+            <span class="side-menu__label">الخريطة</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./hotels.html" class="nav-link">
+            <i class="fas fa-hotel clx"></i>
+            <span class="side-menu__label">الفنادق</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./flights.html" class="nav-link">
+            <i class="fas fa-plane clx"></i>
+            <span class="side-menu__label">الطيران</span>
+          </a>
+        </li>
+
+        <li class="nav-item nav-active">
+          <a href="./currency.html" class="nav-link">
+            <i class="fas fa-coins clx"></i>
+            <span class="side-menu__label">العملات</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./covid19.html" class="nav-link">
+            <i class="fas fa-pills clx"></i>
+            <span class="side-menu__label">كوفيد-19</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="side-menu__label"></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <style>
+      .cstm-edit {
+        justify-content: center;
+        margin-left: 5%;
+        align-items: flex-start;
+        height: 65vh;
+      }
+      #form_input {
+        justify-content: center;
+        align-items: center;
+        border: 1px #b2b2b29c solid;
+        border-radius: 10px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        width: 500px;
+        padding: 1px;
+      }
+
+      #form_input .container {
+        width: 100%;
+      }
+
+      .button-search {
+        margin-bottom: 10px;
+        width: 55%;
+      }
+
+      /* Flag */
+      .auto-flag {
+        width: 23px;
+        left: 60%;
+        position: absolute;
+      }
+
+      /* Icons */
+      .sync-icon {
+        font-size: 35px;
+        transition: 0.1s;
+        cursor: pointer;
+      }
+
+      /* .sync-icon:hover{
+        /*animation: fa-spin 3s infinite linear;
+        /* transform: scale(1.1); 
+        /*transform: rotateX(180deg);
+      }*/
+
+      .sync-flip {
+        transform: rotateX(180deg);
+      }
+
+      @-webkit-keyframes fa-spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(359deg);
+          transform: rotate(359deg);
+        }
+      }
+      @keyframes fa-spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(359deg);
+          transform: rotate(359deg);
+        }
+      }
+      /* Loader Stylish */
+
+      loader {
+        border-radius: 8px;
+        padding: 15px;
+        background: #0000008c;
+        position: absolute;
+        color: white;
+        width: 150px !important;
+      }
+
+      loader h2 {
+        margin: 0;
+      }
+    </style>
+    <main>
+      <!-- All Page Content gose her -->
+      <div class="container-cl">
+        <div class="block-title">
+          <!-- Background -->
+          <div class="backgroun-title backgroun-third"></div>
+          <div style="margin-top: -50px">
+            <div class="big-title">محول العملات</div>
+            <h3>عملات العالم واجد صح ؟ لاتحاتي انا حافظهم كلهم</h3>
+          </div>
+        </div>
+        <div class="container cstm-edit">
+          <div id="form_input" class="container-cl cl-shadow">
+            <div>
+              <img src="./assets/gifs/countriesRounded.gif" alt="" srcset="" />
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center; width: 100%">
+              <div style="flex: 1; margin-right: 10px">
+                <i onclick="switchCurrncies (this)" class="fas fa-sync-alt sync-icon"></i>
+              </div>
+              <div style="flex: 10">
+                <div class="container autocomplete">
+                  <img class="auto-flag" id="flag-1" src="" />
+                  <input type="text" id="FromCountry" class="input-search" placeholder="من" />
+                  <i class="fas fa-arrow-circle-left" style="font-size: 35px"></i>
+                  <input type="text" id="startAmount" class="input-search" placeholder="الكمية" />
+                </div>
+                <div class="container autocomplete">
+                  <img class="auto-flag" id="flag-2" src="" />
+                  <input type="text" id="ToCountry" class="input-search" placeholder="الى" />
+                  <i class="fas fa-arrow-circle-left" style="font-size: 35px"></i>
+                  <input type="text" id="finshAmount" class="input-search" placeholder="الكمية" disabled />
+                </div>
+              </div>
+            </div>
+            <!-- Loader -->
+            <loader id="loader_r" style="width: 75%; margin-top: 25px; display: none">
+              <div></div>
+              <h2>جاري تحميل ..</h2>
+            </loader>
+            <input type="button" id="convButton" class="button-search" onclick="currConv(this);" value="حول العملة" />
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/countries.js"></script>
+    <script src="./assets/js/forms.js"></script>
+    <script src="./assets/js/currencies.js"></script>
+    <script>
+      /* DOM INTRODOUCON VERBS */
+      let Country_Elm = document.getElementById("FromCountry");
+      let CountryElm_2 = document.getElementById("ToCountry");
+      let valueAmount = document.getElementById("startAmount");
+
+      /* Calling Overview requests */
+      let getCurrconv = function (eq, amount) {
+        return new Promise(function (resolve) {
+          ajaxRequest("action=currconv&eq=" + eq + "&amount=" + amount, false).then(function (data) {
+            if (data) {
+              let respone = $.parseJSON(data);
+              if (respone["status"] == true) {
+                resolve(respone["msg"]);
+              }
+            } else {
+              resolve("نتعذر عن جلب المعلومات اللأزمة، تأكد من مدخلاتك او حاول في وقت لاحق");
+            }
+          });
+        });
+      };
+      /* DOM Functionality */
+
+      function switchCurrncies(elm) {
+        let flag_1 = document.getElementById("flag-1").src;
+        let flag_2 = document.getElementById("flag-2").src;
+
+        var c1_Value = Country_Elm.value;
+        var c2_Value = CountryElm_2.value;
+
+        var c1_code = Country_Elm.getAttribute("data-code");
+        var c2_code = CountryElm_2.getAttribute("data-code");
+
+        if (c1_Value == "" || c2_Value == "") {
+          alert("الرجاء ملء الفراعات اولا");
+          return;
+        }
+
+        document.getElementById("flag-1").src = flag_2;
+        document.getElementById("flag-2").src = flag_1;
+        Country_Elm.value = c2_Value;
+        CountryElm_2.value = c1_Value;
+
+        Country_Elm.setAttribute("data-code", c2_code);
+        CountryElm_2.setAttribute("data-code", c1_code);
+
+        if (elm.classList.contains("sync-flip") == false) {
+          elm.classList.add("sync-flip");
+        } else {
+          elm.classList.remove("sync-flip");
+        }
+      }
+
+      function currConv(button) {
+        if (Country_Elm.value == "" || CountryElm_2.value == "" || startAmount.value == "") {
+          alert("الرجاء ملء الفراعات اولا");
+          return;
+        }
+        let countryCurrCode_1 = curr[Country_Elm.getAttribute("data-code")];
+        let countryCurrCode_2 = curr[CountryElm_2.getAttribute("data-code")];
+        if (countryCurrCode_1 == undefined || countryCurrCode_2 == undefined) {
+          alert("نعتذر عن متابعة العملية");
+          return;
+        }
+        document.getElementById("loader_r").style.display = "flex";
+        button.disabled = true;
+        getCurrconv(countryCurrCode_1 + "_" + countryCurrCode_2, startAmount.value).then(function (respone) {
+          if (respone == false) {
+            //Something went wrong
+            alert("حدث خطأ ما اثناء عملية التحويل نعتذر");
+          } else {
+            document.getElementById("finshAmount").value = respone;
+            button.disabled = false;
+          }
+          document.getElementById("loader_r").style.display = "none";
+        });
+      }
+
+      /* Assign countries values from id in url */
+
+      var co_code = parseURL(window.location.href)["searchObject"]["id"];
+
+      if (co_code != undefined) {
+        //First input (defualt kuwait)
+        Country_Elm.value = "الكويت";
+        document.getElementById("flag-1").src = "./assets/flags/kw.png";
+        Country_Elm.setAttribute("data-code", "KW");
+        //Second input (_GET[ID])
+        let get_code = searchByCode(co_code, countries);
+        CountryElm_2.value = get_code["name"];
+        document.getElementById("flag-2").src = "./assets/flags/" + get_code["code"].toLowerCase() + ".png";
+        CountryElm_2.setAttribute("data-code", get_code["code"]);
+        console.log(get_code);
+      }
+
+      /* autocomplete fucnctions */
+
+      autocomplete(document.getElementById("FromCountry"), countries, "flag-1");
+      autocomplete(document.getElementById("ToCountry"), countries, "flag-2");
+
+      document.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          currConv(document.getElementById("convButton"));
+        }
+      });
+    </script>
+  </body>
+</html>

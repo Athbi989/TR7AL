@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trhal</title>
+    <link rel="icon" href="./globe.png" />
+    <!-- Awesome Fonts (For Icons only) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+    <!-- My Style's CSS -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/helpers.css" />
+    <link rel="stylesheet" href="./assets/css/forms.css" />
+  </head>
+
+  <body dir="rtl">
+    <!-- Preloader -->
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+    <!-- Main - Header (flexboxed) -->
+    <header>
+      <div class="flex-header">
+        <!-- Right side of header -->
+        <div class="right-side">
+          <div class="tilte-container">
+            <h1>تّرحال</h1>
+            <img width="42" src="./globe.png" alt="" />
+          </div>
+        </div>
+        <!-- Left side of header -->
+        <div class="left-side">
+          <!-- User Settings Labels -->
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="./assets/flags/kw.png" width="16" /> دينار</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#"><img src="./assets/flags/kw.png" width="16" /> دينار </a>
+              <a class="dropdown-item" href="#"><img src="./assets/flags/ae.png" width="16" /> درهم </a>
+              <a class="dropdown-item" href="#"><img src="./assets/flags/sa.png" width="16" /> ريال </a>
+            </div>
+          </div>
+          <!-- Light Dark Switcher -->
+          <div class="SwitcherDiv">
+            <input type="checkbox" class="modrenSwitch" onchange="switchTheme(this.checked)" id="chk" />
+            <label class="switch" for="chk">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+              <div class="ball"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sidebar (flexboxed) -->
+    <nav class="navbar-trhal">
+      <ul class="navbar-nav">
+        <li class="logo">
+          <a href="#" class="nav-link">
+            <span class="link-text logo-text">Hive it </span>
+            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plane-departure" class="svg-inline--fa fa-plane-departure fa-w-20" role="img" viewBox="0 0 640 512">
+              <path
+                fill="currentColor"
+                d="M624 448H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h608c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16zM80.55 341.27c6.28 6.84 15.1 10.72 24.33 10.71l130.54-.18a65.62 65.62 0 0 0 29.64-7.12l290.96-147.65c26.74-13.57 50.71-32.94 67.02-58.31 18.31-28.48 20.3-49.09 13.07-63.65-7.21-14.57-24.74-25.27-58.25-27.45-29.85-1.94-59.54 5.92-86.28 19.48l-98.51 49.99-218.7-82.06a17.799 17.799 0 0 0-18-1.11L90.62 67.29c-10.67 5.41-13.25 19.65-5.17 28.53l156.22 98.1-103.21 52.38-72.35-36.47a17.804 17.804 0 0 0-16.07.02L9.91 230.22c-10.44 5.3-13.19 19.12-5.57 28.08l76.21 82.97z"
+              />
+            </svg>
+          </a>
+        </li>
+        <!-- Sidebar Items (also flexboxed) -->
+        <li class="nav-item">
+          <a href="./index.html" class="nav-link">
+            <i class="fa fa-home clx"></i>
+            <span class="side-menu__label">رئيسي</span>
+            <!-- <span class="nav-tip">الصفحة الرئيسية</span> -->
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./popular.html" class="nav-link">
+            <i class="fas fa-fire clx"></i>
+            <span class="side-menu__label">الشائع</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./explore.html" class="nav-link">
+            <i class="fas fa-search clx"></i>
+            <span class="side-menu__label">إكتشف</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./map.html" class="nav-link">
+            <i class="fas fa-map clx"></i>
+            <span class="side-menu__label">الخريطة</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./hotels.html" class="nav-link">
+            <i class="fas fa-hotel clx"></i>
+            <span class="side-menu__label">الفنادق</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./flights.html" class="nav-link">
+            <i class="fas fa-plane clx"></i>
+            <span class="side-menu__label">الطيران</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./currency.html" class="nav-link">
+            <i class="fas fa-coins clx"></i>
+            <span class="side-menu__label">العملات</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./covid19.html" class="nav-link">
+            <i class="fas fa-pills clx"></i>
+            <span class="side-menu__label">كوفيد-19</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="side-menu__label"></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <style>
+      .container {
+        margin-top: 20px;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+      }
+
+      /* Respoinve */
+
+      @media only screen and (max-width: 1559px) {
+        #__panelHotels .container {
+          justify-content: stretch;
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .card__ty1 .info .sub1 {
+          font-size: 16px;
+        }
+
+        .card__ty1 .info .sub2 {
+          font-size: 12px;
+        }
+      }
+
+      @media only screen and (max-width: 1555px) {
+        .card__ty1 {
+          flex: 0 23%;
+        }
+
+        #detail_current_json .card__ty2 {
+          flex: 0 47%;
+        }
+      }
+
+      @media only screen and (max-width: 1030px) {
+        #__Point_of_intrest .container {
+          justify-content: stretch;
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        #detail_current_json .card__ty2 {
+          flex: 100%;
+        }
+      }
+
+      @media only screen and (max-width: 1445px) {
+        .subinfo {
+          display: none;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .view-main .left {
+          display: none;
+        }
+
+        #_Loader {
+          left: 20% !important;
+          bottom: 10%;
+        }
+
+        .flight_single {
+          width: 19rem;
+        }
+
+        .flight_single .i1 {
+          font-size: 13px;
+        }
+
+        .flight_single .i2 {
+          font-size: 11px;
+        }
+      }
+    </style>
+    <style>
+      .container input {
+        margin: 5px 0 0px;
+        margin-top: 1%;
+      }
+    </style>
+    <main>
+      <!-- All Page Content gose her -->
+      <div class="view-main">
+        <!-------------------- Right Menu -------------------->
+
+        <div class="right">
+          <container>
+            <!-- Header -->
+
+            <div class="flex">
+              <ul>
+                <li onclick="forceSwitch('overview');">
+                  <i class="fa fa-home clx" style="margin-left: 5px"></i>
+                  <div class="subinfo">نظرة عامة</div>
+                </li>
+                <li onclick="forceSwitch('hotels');">
+                  <i class="fa fa-hotel clx" style="margin-left: 5px"></i>
+                  <div class="subinfo">الفنادق</div>
+                </li>
+                <li onclick="forceSwitch('planes');">
+                  <i class="fa fa-plane clx" style="margin-left: 5px"></i>
+                  <div class="subinfo">الطيران</div>
+                </li>
+                <li onclick="forceSwitch('attraction');">
+                  <i class="fa fa-umbrella-beach clx" style="margin-left: 5px"></i>
+                  <div class="subinfo">الأماكن السياحية</div>
+                </li>
+
+                <li onclick="forceSwitch('catgs');">
+                  <i class="fa fa-list clx" style="margin-left: 5px"></i>
+                  <div class="subinfo">احتياجات السائح</div>
+                </li>
+
+                <div id="bar" class="bar"></div>
+              </ul>
+            </div>
+            <!-- Country Banner -->
+            <div class="big-banner">
+              <img id="ov_img" class="img-country" src="" alt="" srcset="" />
+              <span class="overly">
+                <div class="title" id="ov_title">جاري التحميل ..</div>
+                <div class="subtitle" id="ov_people"></div>
+                <div class="subtitle" id="ov_label"></div>
+              </span>
+            </div>
+            <!-- Loader -->
+            <div class="container" id="_Loader" style="position: absolute; left: 55%; background: rgb(0 0 0 / 41%); border-radius: 30px; z-index: 99">
+              <svg class="svg-calLoader" xmlns="http://www.w3.org/2000/svg" width="230" height="230">
+                <path
+                  class="cal-loader__path"
+                  d="M86.429 40c63.616-20.04 101.511 25.08 107.265 61.93 6.487 41.54-18.593 76.99-50.6 87.643-59.46 19.791-101.262-23.577-107.142-62.616C29.398 83.441 59.945 48.343 86.43 40z"
+                  fill="none"
+                  stroke="#0099cc"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-dasharray="10 10 10 10 10 10 10 432"
+                  stroke-dashoffset="77"
+                />
+                <path
+                  class="cal-loader__plane"
+                  d="M141.493 37.93c-1.087-.927-2.942-2.002-4.32-2.501-2.259-.824-3.252-.955-9.293-1.172-4.017-.146-5.197-.23-5.47-.37-.766-.407-1.526-1.448-7.114-9.773-4.8-7.145-5.344-7.914-6.327-8.976-1.214-1.306-1.396-1.378-3.79-1.473-1.036-.04-2-.043-2.153-.002-.353.1-.87.586-1 .952-.139.399-.076.71.431 2.22.241.72 1.029 3.386 1.742 5.918 1.644 5.844 2.378 8.343 2.863 9.705.206.601.33 1.1.275 1.125-.24.097-10.56 1.066-11.014 1.032a3.532 3.532 0 0 1-1.002-.276l-.487-.246-2.044-2.613c-2.234-2.87-2.228-2.864-3.35-3.309-.717-.287-2.82-.386-3.276-.163-.457.237-.727.644-.737 1.152-.018.39.167.805 1.916 4.373 1.06 2.166 1.964 4.083 1.998 4.27.04.179.004.521-.076.75-.093.228-1.109 2.064-2.269 4.088-1.921 3.34-2.11 3.711-2.123 4.107-.008.25.061.557.168.725.328.512.72.644 1.966.676 1.32.029 2.352-.236 3.05-.762.222-.171 1.275-1.313 2.412-2.611 1.918-2.185 2.048-2.32 2.45-2.505.241-.111.601-.232.82-.271.267-.058 2.213.201 5.912.8 3.036.48 5.525.894 5.518.914 0 .026-.121.306-.27.638-.54 1.198-1.515 3.842-3.35 9.021-1.029 2.913-2.107 5.897-2.4 6.62-.703 1.748-.725 1.833-.594 2.286.137.46.45.833.872 1.012.41.177 3.823.24 4.37.085.852-.25 1.44-.688 2.312-1.724 1.166-1.39 3.169-3.948 6.771-8.661 5.8-7.583 6.561-8.49 7.387-8.702.233-.065 2.828-.056 5.784.011 5.827.138 6.64.09 8.62-.5 2.24-.67 4.035-1.65 5.517-3.016 1.136-1.054 1.135-1.014.207-1.962-.357-.38-.767-.777-.902-.893z"
+                  class="cal-loader__plane"
+                  fill="#000033"
+                />
+              </svg>
+            </div>
+            <!-- Points Of intrest places -->
+            <div id="__Point_of_intrest" style="display: none">
+              <h2>الأماكن الرائجة بالدولة</h2>
+              <div class="container" id="psOv_json">
+                <!-- Ajax Handled here -->
+              </div>
+            </div>
+            <!-- Hotels Panel -->
+            <div id="__panelHotels" style="display: none">
+              <h2>قائمة الفنادق</h2>
+              <div class="container" id="hotels_json">
+                <!-- Ajax Handled here -->
+              </div>
+            </div>
+            <!-- Flights -->
+            <div id="__panelPlanes" style="display: none">
+              <h2>اسعار تذاكر الطيران ( للشخص الواحد )</h2>
+              <div class="flight_container" id="planes_json">
+                <!-- Ajax Handled here -->
+              </div>
+            </div>
+            <!-- Details -->
+            <div id="__panelDetail" style="display: none">
+              <h2 id="detial_text">الفئات</h2>
+              <div class="container" style="justify-content: center" id="detail_json">
+                <!-- Javascript handled here -->
+                <div id="coin_convter" onclick="" style="cursor: pointer" class="ovl__card detail_sizing">
+                  <div class="ovl__header">
+                    <div class="container">
+                      <div class="info detail_sizing_font">محول العملة</div>
+                    </div>
+                  </div>
+                  <div class="ovl__img-cover">
+                    <div class="ovl__overly"></div>
+                    <img class="detail_sizing_img" src="./assets/images/places/coins.png" />
+                  </div>
+                </div>
+              </div>
+              <div id="detail_current" style="display: none">
+                <input type="button" class="button-search" onclick="switchCatgories('main');" value="إرجع للقائمة الخلفية" />
+                <div class="container" id="detail_current_json">
+                  <!-- Javascript handled here -->
+                </div>
+              </div>
+            </div>
+            <!-- Attraction Places With Loading.. -->
+            <div id="__panelAtraction" style="display: none">
+              <div class="container" id="attraction_catgs">
+                <div class="ovl__card">
+                  <a href="#">
+                    <div class="ovl__title">الأماكن السياحية</div>
+                    <div class="ovl__img-cover">
+                      <div class="ovl__overly"></div>
+                      <img src="./assets/gifs/earth.gif" />
+                    </div>
+                  </a>
+                </div>
+                <div class="ovl__card">
+                  <a href="#">
+                    <div class="ovl__title">الأماكن الرائجة بالدولة</div>
+                    <div class="ovl__img-cover">
+                      <div class="ovl__overly"></div>
+                      <img src="./assets/gifs/map.gif" />
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <h2>قائمة النتائج</h2>
+              <div class="container">
+                <div class="right-arrow">
+                  <a onclick="changePageAttraction('next')" class="clickable_icon focrc-small-icon"><i class="fas fa-arrow-right clx"></i></a>
+                </div>
+                <div class="" id="atrraction_json">
+                  <!-- Ajax Handled here -->
+                </div>
+                <div class="left-arrow">
+                  <a onclick="changePageAttraction('pre')" class="clickable_icon focrc-small-icon"><i class="fas fa-arrow-left clx"></i></a>
+                </div>
+              </div>
+            </div>
+          </container>
+        </div>
+
+        <!-------------------- Left Menu -------------------->
+        <div class="left">
+          <!-- Conrona Viurs Live Feed (js) -->
+          <div class="corner-card">
+            <div class="title">
+              <img id="cr_flag" src="" alt="Avatar" />
+              <h3>حالات كورونا</h3>
+            </div>
+            <div class="line-ver"></div>
+            <div class="container">
+              <div class="numberd-info">
+                <h3>الأجمالي</h3>
+                <h4 id="cr_total">Load..</h4>
+              </div>
+              <div class="line-hr"></div>
+              <div class="numberd-info">
+                <h3>المتعافين</h3>
+                <h4 id="cr_recoverd">Load..</h4>
+              </div>
+              <div class="line-hr"></div>
+              <div class="numberd-info">
+                <h3>الوفيات</h3>
+                <h4 id="cr_deaths">Load..</h4>
+              </div>
+            </div>
+          </div>
+          <!-- Google Map Current Country -->
+          <div class="map-card" style="margin-top: 25px">
+            <div id="map-canvas" style="width: 100%; height: 100%; border-radius: 18px"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/countries.js"></script>
+    <script src="./assets/js/forms.js"></script>
+    <script src="./assets/js/iso.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB73ruVbZGoirOrvFzCec4T92XZWxFdcic"></script>
+
+    <script>
+      /* Static Vars */
+      let mapOptions = "";
+      const themeMode = localStorage.getItem("theme");
+      var map;
+      var __COUNTERY_NAME = "";
+      var __COUNTERY_CODE = "";
+      var __BACKGROUND_PROCCESS = false;
+      let __ATTRACTION_PAGE = 0;
+      let __ATTRACTION_LIST = {
+        token: "0",
+        data: [],
+      };
+      let __Panels = ["__Point_of_intrest", "__panelPlanes", "__panelHotels", "__panelDetail", "__panelAtraction"];
+      let __Catgories = [
+        {
+          name: "متاحف",
+          type: "museum",
+          src: "Museums.jpg",
+        },
+        {
+          name: "المقاهي",
+          type: "cafe",
+          src: "caffe.jpg",
+        },
+        {
+          name: "مجمعات",
+          type: "shopping_mall",
+          src: "malls.jpg",
+        },
+        {
+          name: "السينما",
+          type: "movie_theater",
+          src: "movies.jpg",
+        },
+        {
+          name: "المساجد",
+          type: "mosque",
+          src: "mosque.jpg",
+        },
+        {
+          name: "بارك",
+          type: "amusement_park",
+          src: "parks.jpg",
+        },
+        {
+          name: "الأكواريم",
+          type: "aquarium",
+          src: "aqaruim.jpg",
+        },
+        {
+          name: "مطاعم",
+          type: "restaurant",
+          src: "restaurnt.jpg",
+        },
+        {
+          name: "حدائق الحيوانات",
+          type: "zoo",
+          src: "zoo.jpg",
+        },
+        {
+          name: "ملاعب",
+          type: "stadium",
+          src: "staduim.jpg",
+        },
+        {
+          name: "منتجع صحي",
+          type: "spa",
+          src: "spa.jpg",
+        },
+        {
+          name: "نوادي",
+          type: "gym",
+          src: "gym.jpg",
+        },
+        {
+          name: "الحلاق",
+          type: "hair_care",
+          src: "saloon.jpg",
+        },
+        {
+          name: "المستشفيات",
+          type: "hospital",
+          src: "hospital.jpg",
+        },
+        {
+          name: "الجمعيات",
+          type: "supermarket",
+          src: "supermarket.jpg",
+        },
+        {
+          name: "مكتبة",
+          type: "library",
+          src: "library.jpg",
+        },
+      ];
+      /* Calling Overview requests */
+
+      async function getOverview(code) {
+        return new Promise(function (resolve) {
+          ajaxRequest("action=overview&code=" + code, true).then(function (data) {
+            if (data) {
+              __BACKGROUND_PROCCESS = true;
+              var info = JSON.parse(data);
+              var imgSource = API_URL + "ImageQuery.php?q=" + info["query"] + "&w=1328";
+              var imgFlag = "./assets/flags/" + code + ".png";
+              var countryName = searchByCode(code, countries);
+              // __COUNTERY_NAME = info.query
+              __COUNTERY_NAME = getCountryName(code.toUpperCase());
+              __COUNTERY_CODE = code;
+              /* Output to DOM */
+              document.getElementById("cr_flag").src = imgFlag;
+              document.getElementById("ov_img").src = imgSource;
+
+              document.getElementById("ov_title").innerHTML = countryName.name;
+              document.getElementById("ov_people").innerHTML = `التعداد السكاني : ${info["population"]}`;
+              document.getElementById("ov_label").innerHTML = info["label"];
+
+              document.getElementById("cr_total").innerHTML = info["corona"]["confirmed"];
+              document.getElementById("cr_recoverd").innerHTML = info["corona"]["recovered"];
+              document.getElementById("cr_deaths").innerHTML = info["corona"]["deaths"];
+
+              document.getElementById("coin_convter").setAttribute("onclick", "window.open('./currency.html?id=" + __COUNTERY_CODE + "', '_blank');");
+
+              animateValue(document.getElementById("cr_total"), 0, null, 500);
+              animateValue(document.getElementById("cr_recoverd"), 0, null, 500);
+              animateValue(document.getElementById("cr_deaths"), 0, null, 500);
+
+              mapOptions = {
+                zoom: 8,
+                minZoom: 1,
+                center: new google.maps.LatLng(info["lng"], info["lat"]),
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                backgroundColor: "none",
+              };
+              if (themeMode != null) {
+                if (themeMode == "dark") {
+                  mapOptions = {
+                    zoom: 8,
+                    minZoom: 3,
+                    center: new google.maps.LatLng(info["lng"], info["lat"]),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    styles: [
+                      { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+                      { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+                      { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+                      {
+                        featureType: "administrative.locality",
+                        elementType: "labels.text.fill",
+                        stylers: [{ color: "#d59563" }],
+                      },
+                      {
+                        featureType: "poi",
+                        elementType: "labels.text.fill",
+                        stylers: [{ color: "#d59563" }],
+                      },
+                      {
+                        featureType: "poi.park",
+                        elementType: "geometry",
+                        stylers: [{ color: "#263c3f" }],
+                      },
+                      {
+                        featureType: "poi.park",
+                        elementType: "labels.text.fill",
+                        stylers: [{ color: "#6b9a76" }],
+                      },
+                      {
+                        featureType: "road",
+                        elementType: "geometry",
+                        stylers: [{ color: "#38414e" }],
+                      },
+                      {
+                        featureType: "road",
+                        elementType: "geometry.stroke",
+                        stylers: [{ color: "#212a37" }],
+                      },
+                      {
+                        featureType: "road",
+                        elementType: "labels.text.fill",
+                        stylers: [{ color: "#9ca5b3" }],
+                      },
+                      {
+                        featureType: "road.highway",
+                        elementType: "geometry",
+                        stylers: [{ color: "#746855" }],
+                      },
+                      {
+                        featureType: "road.highway",
+                        elementType: "geometry.stroke",
+                        stylers: [{ color: "#1f2835" }],
+                      },
+                      {
+                        featureType: "road.highway",
+                        elementType: "labels.text.fill",
+                        stylers: [{ color: "#f3d19c" }],
+                      },
+                      {
+                        featureType: "transit",
+                        elementType: "geometry",
+                        stylers: [{ color: "#2f3948" }],
+                      },
+                      {
+                        featureType: "transit.station",
+                        elementType: "labels.text.fill",
+                        stylers: [{ color: "#d59563" }],
+                      },
+                      {
+                        featureType: "water",
+                        elementType: "geometry",
+                        stylers: [{ color: "#17263c" }],
+                      },
+                      {
+                        featureType: "water",
+                        elementType: "labels.text.fill",
+                        stylers: [{ color: "#515c6d" }],
+                      },
+                      {
+                        featureType: "water",
+                        elementType: "labels.text.stroke",
+                        stylers: [{ color: "#17263c" }],
+                      },
+                    ],
+                    backgroundColor: "none",
+                  };
+                }
+              }
+              map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+              $("#map-canvas").css("position", "fixed !important");
+              resolve();
+            }
+          });
+        });
+      }
+
+      let getOverviewPlaces = function () {
+        return new Promise(function (resolve) {
+          ajaxRequest("action=PointsOfInterst&query=" + __COUNTERY_NAME, false).then(function (data) {
+            if (data) {
+              __BACKGROUND_PROCCESS = true;
+              document.getElementById("psOv_json").innerHTML = data;
+              document.getElementById("_Loader").style.display = "none";
+              resolve();
+            } else {
+              resolve(false);
+            }
+          });
+        });
+      };
+
+      let getHotels = function (limt = 25) {
+        return new Promise(function (resolve) {
+          __BACKGROUND_PROCCESS = true;
+          ajaxRequest("action=hotels&query=" + __COUNTERY_NAME + "&limt=" + limt, false).then(function (data) {
+            if (data) {
+              document.getElementById("hotels_json").innerHTML = data;
+              document.getElementById("_Loader").style.display = "none";
+              resolve();
+            } else {
+              document.getElementById("hotels_json").innerHTML = "عذرا لم نتمكن من العثور على النتائج";
+              document.getElementById("_Loader").style.display = "none";
+              resolve(false);
+            }
+          });
+        });
+      };
+
+      let getPlanes = function () {
+        return new Promise(function (resolve) {
+          __BACKGROUND_PROCCESS = true;
+          ajaxRequest("action=flights&dis=" + __COUNTERY_CODE, false).then(function (data) {
+            if (data) {
+              document.getElementById("planes_json").innerHTML = data;
+              document.getElementById("_Loader").style.display = "none";
+              resolve();
+            } else {
+              document.getElementById("planes_json").innerHTML = "عذرا لم نتمكن من العثور على النتائج";
+              document.getElementById("_Loader").style.display = "none";
+              resolve(false);
+            }
+          });
+        });
+      };
+
+      let getPlaceByType = function (type) {
+        return new Promise(function (resolve) {
+          __BACKGROUND_PROCCESS = true;
+          ajaxRequest("action=getPlace&query=" + __COUNTERY_NAME + "&type=" + type, false).then(function (data) {
+            if (data) {
+              document.getElementById("detail_current_json").innerHTML = data;
+              document.getElementById("_Loader").style.display = "none";
+              resolve();
+            } else {
+              document.getElementById("detail_current_json").innerHTML = "عذرا لم نتمكن من العثور على النتائج";
+              document.getElementById("_Loader").style.display = "none";
+              resolve(false);
+            }
+          });
+        });
+      };
+
+      let getPlaceLists = function (type, page = "none") {
+        return new Promise(function (resolve) {
+          __BACKGROUND_PROCCESS = true;
+          ajaxRequest("action=getPlaceList&query=" + __COUNTERY_NAME + "&type=" + type + "&page=" + page, false).then(function (data) {
+            if (data) {
+              let respone = $.parseJSON(data);
+              resolve(respone);
+            } else {
+              resolve(false);
+            }
+          });
+        });
+      };
+
+      /* DOM Funcounallty  */
+
+      async function forceSwitch(id) {
+        if (__BACKGROUND_PROCCESS == false) {
+          document.getElementById("_Loader").style.display = "block";
+          if (id == "overview") {
+            switchPanel(__Panels, "__Point_of_intrest");
+            hoverPanel("__Point_of_intrest");
+            document.getElementById("_Loader").style.display = "none";
+          } else if (id == "hotels") {
+            hoverPanel("__panelHotels");
+            getHotels((limt = 25)).then(function (data) {
+              switchPanel(__Panels, "__panelHotels");
+              __BACKGROUND_PROCCESS = false;
+            });
+          } else if (id == "planes") {
+            hoverPanel("__panelPlanes");
+            getPlanes().then(function () {
+              switchPanel(__Panels, "__panelPlanes");
+              __BACKGROUND_PROCCESS = false;
+            });
+          } else if (id == "catgs") {
+            switchPanel(__Panels, "__panelDetail");
+            hoverPanel("__panelDetail");
+            document.getElementById("_Loader").style.display = "none";
+            __BACKGROUND_PROCCESS = false;
+          } else if (id == "attraction") {
+            switchPanel(__Panels, "__panelAtraction");
+            hoverPanel("__panelAtraction");
+            initAttraction().then(function () {
+              document.getElementById("_Loader").style.display = "none";
+              __BACKGROUND_PROCCESS = false;
+            });
+          }
+        } else {
+          //Alert (some download going on in webpage)
+          alert("Please wait until page finsh downlaod");
+        }
+      }
+
+      function hoverPanel(id) {
+        let bar = document.getElementById("bar");
+        if (id == "__Point_of_intrest") {
+          bar.style.left = "80.1%";
+        } else if (id == "__panelHotels") {
+          bar.style.left = "61.1%";
+        } else if (id == "__panelPlanes") {
+          bar.style.left = "41.1%";
+        } else if (id == "__panelDetail") {
+          bar.style.left = "0.1%";
+        } else if (id == "__panelAtraction") {
+          bar.style.left = "21.1%";
+        }
+      }
+
+      function switchCatgories(type) {
+        let main_Container = document.getElementById("detail_json");
+        let current_Continer = document.getElementById("detail_current");
+        let detail_text = document.getElementById("detial_text");
+        document.getElementById("_Loader").style.display = "block";
+        let details = searchByType(type, __Catgories);
+        if (type != "main") {
+          if (details) {
+            detail_text.innerHTML = `الفئة المختار : ${details.name}`;
+            main_Container.style.display = "none";
+            //Loading promise
+            getPlaceByType(type).then(function () {
+              current_Continer.style.display = "block";
+              __BACKGROUND_PROCCESS = false;
+            });
+          }
+        } else {
+          document.getElementById("_Loader").style.display = "none";
+          detail_text.innerHTML = "الفئات";
+          main_Container.style.display = "flex";
+          current_Continer.style.display = "none";
+        }
+      }
+
+      function initCatgories() {
+        let DOM = document.getElementById("detail_json");
+        __Catgories.forEach((item) => {
+          let src = "./assets/images/places/" + item.src;
+          DOM.innerHTML += `
+        <div onclick='switchCatgories("${item.type}")' style="cursor: pointer;" class="ovl__card detail_sizing">
+                <div class="ovl__header">
+                  <div class="container">
+                    <div class="info detail_sizing_font">${item.name}</div>
+                  </div>
+                </div>
+                <div class="ovl__img-cover">
+                  <div class="ovl__overly"></div>
+                  <img class="detail_sizing_img"
+                       src="${src}">
+                </div>
+              </div>
+        `;
+        });
+      }
+
+      function showPlacesList(data) {
+        let dataView = document.getElementById("atrraction_json");
+        dataView.innerHTML = "";
+        for (let item of Object.keys(data)) {
+          var Place = data[item];
+          dataView.innerHTML += `
+        <div class="card__ty2">
+          <div class="info">
+            <div class="sub1"><span>${Place.name} <img width="24" src="${Place.icon}" alt="" srcset=""></span></div>
+            <div class="price">${Place.formatted_address}</div>
+            <div class="sub2">Rating : <span class="rating_label">${Place.rating}/5</span></div></div>
+            <a href="${Place.url}" target="_blank" class="clickable_icon">
+              <i class="fas fa-map-marker-alt clx"></i>
+            </a>
+            <div class="img">
+            <div class="overly"></div>
+            <img class="img-country" src="${Place.img}" alt="" srcset="">
+          </div>
+        </div>
+        `;
+        }
+      }
+
+      let initAttraction = function () {
+        return new Promise(function (resolve) {
+          getPlaceLists((type = "points+of+interest"), (page = "none")).then(function (respone) {
+            if (respone != false) {
+              //DOM DATA
+              __ATTRACTION_LIST["token"] = respone["nextToken"];
+              __ATTRACTION_LIST["data"].push(respone["data"]);
+              showPlacesList(respone["data"]);
+              resolve();
+            }
+          });
+        });
+      };
+
+      function changePageAttraction(type) {
+        if (type == "next") {
+          __ATTRACTION_PAGE++;
+        } else {
+          if (__ATTRACTION_PAGE != 0) {
+            __ATTRACTION_PAGE--;
+          } else {
+            return;
+          }
+        }
+        if (__ATTRACTION_LIST["data"][__ATTRACTION_PAGE] != undefined) {
+          let targted = __ATTRACTION_LIST["data"][__ATTRACTION_PAGE];
+          showPlacesList(targted);
+        } else {
+          window.scrollTo(0, 0);
+          let nextUpToken = __ATTRACTION_LIST["token"];
+          document.getElementById("_Loader").style.display = "block";
+          console.log(`Getting page : ${nextUpToken}`);
+          if (nextUpToken != null) {
+            __BACKGROUND_PROCCESS = true;
+            getPlaceLists((type = "points+of+interest"), (page = nextUpToken)).then(function (respone) {
+              if (respone != false) {
+                __ATTRACTION_LIST["token"] = respone["nextToken"];
+                __ATTRACTION_LIST["data"].push(respone["data"]);
+                showPlacesList(respone["data"]);
+                document.getElementById("_Loader").style.display = "none";
+                __BACKGROUND_PROCCESS = false;
+              }
+            });
+          } else {
+            //Alert places limt
+            alert("List Finshed ):");
+            document.getElementById("_Loader").style.display = "none";
+          }
+        }
+      }
+
+      $(document).ready(function () {
+        var co_code = parseURL(window.location.href)["searchObject"]["id"];
+
+        if (co_code == undefined) {
+          window.location = "./index.html";
+          return;
+        }
+
+        initCatgories();
+        // Init Page from now
+        __BACKGROUND_PROCCESS = true;
+        getOverview(co_code)
+          .then(function () {
+            console.log("Finshed Overview");
+            return getOverviewPlaces();
+          })
+          .then(function () {
+            switchPanel(__Panels, "__Point_of_intrest");
+            hoverPanel("__Point_of_intrest");
+            __BACKGROUND_PROCCESS = false;
+            console.log("Findehd Places");
+          })
+          .catch(function (err) {
+            alert(err);
+          });
+      });
+    </script>
+  </body>
+</html>
