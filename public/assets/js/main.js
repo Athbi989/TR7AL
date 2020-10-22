@@ -4,17 +4,16 @@
     About this file : functionality of the trhal site ( main function only ) 
     ajax request in their own page 
     Other : --> i uploaded TRHALCLASSES on private server 
-    { http://103.105.50.163/TRHALCLASSES }
+    { https://trhal-api.com/TRHALCLASSES/ }
     use it if you don't have php server
 */
-var API_URL = "http://103.105.50.163/TRHALCLASSES/"
+var API_URL = "https://trhal-api.com/TRHALCLASSES/";
 
 /* ------------------------------------  Init Page - on load ------------------------------------ */
 $(document).ready(function () {
   $("body").addClass("loaded");
-  refreshTheme()
+  refreshTheme();
 });
-
 
 /* ------------------------------------  Functions ------------------------------------ */
 
@@ -30,46 +29,43 @@ function searchCountry(query) {
   }
 }
 
-
 function switchPanel(avaiablePanels, visbile = null, style = "block") {
-  avaiablePanels.forEach(id => {
+  avaiablePanels.forEach((id) => {
     document.getElementById(id).style.display = "none";
   });
   if (visbile != null) {
-    document.getElementById(visbile).style.display = style
+    document.getElementById(visbile).style.display = style;
   }
 }
-
 
 function ajaxRequest(args, json = true) {
   //Simple Ajax request
   return $.ajax({
-    url: API_URL + '/api.php?' + args,
+    url: API_URL + "/api.php?" + args,
   });
 }
 
-
 function switchTheme(type) {
   if (type == true) {
-    //Enable dark mode 
+    //Enable dark mode
     localStorage.setItem("theme", "dark");
   } else {
     //Light mode
     localStorage.setItem("theme", "light");
   }
-  refreshTheme()
+  refreshTheme();
 }
 
 function refreshTheme() {
-  const themeMode = localStorage.getItem("theme")
+  const themeMode = localStorage.getItem("theme");
   if (themeMode != null) {
     if (themeMode == "dark") {
-      console.log("Theme mode enabled")
-      document.documentElement.setAttribute("data-theme", "dark")
-      document.getElementById("chk").checked = true
+      console.log("Theme mode enabled");
+      document.documentElement.setAttribute("data-theme", "dark");
+      document.getElementById("chk").checked = true;
     } else {
-      document.documentElement.setAttribute("data-theme", "light")
-      document.getElementById("chk").checked = false
+      document.documentElement.setAttribute("data-theme", "light");
+      document.getElementById("chk").checked = false;
     }
   }
 }
