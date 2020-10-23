@@ -32,62 +32,6 @@
         overflow: hidden;
       }
 
-      .big-info {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        margin-left: 5px;
-        box-shadow: -2px 2px 20px 0px rgba(0, 0, 0, 0.251);
-        border-radius: 15px;
-        padding: 10px;
-        text-align: right;
-      }
-
-      .big-info title {
-        font-size: 24px;
-      }
-
-      .covid-info {
-        overflow-y: auto;
-      }
-
-      .count-box {
-        margin-top: 25px;
-        margin-bottom: 25px;
-        width: 20%;
-        height: 100px;
-        border-radius: 10px;
-        box-shadow: -2px 2px 20px 0px rgba(0, 0, 0, 0.251);
-      }
-
-      .count-title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-align: center;
-        background: #111111b8;
-        color: white;
-      }
-
-      .count-amount {
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-align: center;
-      }
-
-      /* Tip box adjusment */
-      .covid-tip {
-        margin-left: 15px;
-        text-align: center;
-        height: 130px;
-      }
-
-      .covid-tip .count-amount {
-        margin-top: 10px;
-        display: inline-block;
-        vertical-align: middle;
-        font-weight: normal;
-        font-size: 1.2rem;
-      }
-
       @-webkit-keyframes fa-spin {
         0% {
           -webkit-transform: rotate(0deg);
@@ -124,6 +68,31 @@
 
       loader h2 {
         margin: 0;
+      }
+
+      /* Responisive */
+      @media only screen and (max-width: 600px) {
+        #map-canvas {
+          display: none;
+        }
+        .corner-card_global {
+          width: 330px;
+          position: unset;
+          color: black;
+        }
+        .main-title {
+          width: 100%;
+        }
+        .count-box {
+          width: 100%;
+        }
+        #crs_cons {
+          flex-direction: column;
+          margin-bottom: 75px;
+        }
+        #tip_cons {
+          flex-direction: column;
+        }
       }
     </style>
   </head>
@@ -310,7 +279,7 @@
             </div>
           </div>
           <!-- Country Counts Boxes (cards) -->
-          <div class="container" style="justify-content: space-between">
+          <div class="container" id="crs_cons" style="justify-content: space-between">
             <div class="count-box">
               <div class="count-title"><i class="fas fa-users"></i> المؤكدة</div>
               <div class="count-amount" id="cr_cases">جاري التحميل</div>
@@ -332,7 +301,7 @@
 
         <!-- Covid tips -->
         <div class="container" id="covid_tips" style="justify-content: space-between; flex-direction: column">
-          <div class="container">
+          <div class="container" id="tip_cons">
             <div class="count-box covid-tip">
               <div class="count-title"><img width="35" src="./assets/images/icons/ruler.png" /></div>
               <span class="count-amount">أَبْقِ مسافة 6 أقدام (2 متر) بينك وبين الآخرين قدر الإمكان. </span>
