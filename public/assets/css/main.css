@@ -66,7 +66,7 @@ div::-webkit-scrollbar-track {
 }
 
 div::-webkit-scrollbar-thumb {
-  background: #6649b8;
+  background: #6f6f6f;
 }
 
 /* -------------------------- Header --------------------------  */
@@ -559,9 +559,24 @@ h4 {
 
 .corner-card {
   width: 392px;
-  height: 193.06px;
+  height: 195px;
   background: #ffffff;
   border: 1px solid #d9cece;
+  box-sizing: border-box;
+  border-radius: 18px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.corner-card_global {
+  width: 392px;
+  height: 195px;
+  position: absolute;
+  box-shadow: -2px 2px 20px 0px rgba(0, 0, 0, 0.251);
+  color: white;
+  border-top-right-radius: 0px;
+  border: 0;
+  background-color: #1b1a1a00;
   box-sizing: border-box;
   border-radius: 18px;
   padding-right: 10px;

@@ -18,8 +18,11 @@
 #loader {
   display: block;
   position: relative;
-  right: 50%;
-  top: 50%;
+  /* right: 50%;
+  top: 50%; */
+  top: calc(50vh - (150px / 2));
+  right: calc(50vw - (150px / 2));
+
   width: 150px;
   height: 150px;
   margin: -75px 0 0 -75px;
@@ -148,7 +151,7 @@
   left: 2px;
   height: 18px;
   width: 19px;
-transform: translateX(0px);
+  transform: translateX(0px);
   transition: transform 0.2s linear;
 }
 
@@ -209,11 +212,19 @@ loader div {
 }
 /* Safari */
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

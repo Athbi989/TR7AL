@@ -12,18 +12,119 @@
     <link rel="stylesheet" href="./assets/css/helpers.css" />
     <link rel="stylesheet" href="./assets/css/forms.css" />
     <style>
-        #covid-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+      #covid-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
 
-        .main-title {
-            border: 0;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.251);
-            width: 50%;
+      .main-title {
+        border: 0;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.251);
+        width: 50%;
+      }
+
+      #map-canvas {
+        border-radius: 15px;
+        position: relative;
+        border-top-right-radius: 0px;
+        overflow: hidden;
+      }
+
+      .big-info {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 5px;
+        box-shadow: -2px 2px 20px 0px rgba(0, 0, 0, 0.251);
+        border-radius: 15px;
+        padding: 10px;
+        text-align: right;
+      }
+
+      .big-info title {
+        font-size: 24px;
+      }
+
+      .covid-info {
+        overflow-y: auto;
+      }
+
+      .count-box {
+        margin-top: 25px;
+        margin-bottom: 25px;
+        width: 20%;
+        height: 100px;
+        border-radius: 10px;
+        box-shadow: -2px 2px 20px 0px rgba(0, 0, 0, 0.251);
+      }
+
+      .count-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        background: #111111b8;
+        color: white;
+      }
+
+      .count-amount {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      /* Tip box adjusment */
+      .covid-tip {
+        margin-left: 15px;
+        text-align: center;
+        height: 130px;
+      }
+
+      .covid-tip .count-amount {
+        margin-top: 10px;
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: normal;
+        font-size: 1.2rem;
+      }
+
+      @-webkit-keyframes fa-spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
         }
+        100% {
+          -webkit-transform: rotate(359deg);
+          transform: rotate(359deg);
+        }
+      }
+      @keyframes fa-spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(359deg);
+          transform: rotate(359deg);
+        }
+      }
+      /* Loader Stylish */
+
+      loader {
+        border-radius: 8px;
+        padding: 15px;
+        background: #0000008c;
+        position: absolute;
+        color: white;
+        width: 150px !important;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      loader h2 {
+        margin: 0;
+      }
     </style>
   </head>
 
@@ -150,42 +251,121 @@
 
     <main>
       <!-- All Page Content gose her -->
-      <div class="container-cl">
-        <div class="block-title">
-          <!-- Background -->
-          <div class="backgroun-title backgroun-map-light"></div>
-          <div style="margin-top: -50px" id="covid-container">
-            <h2>المزيد عن كوفيد-19</h2>
-            <div class="container main-title autocomplete" >
-                <input type="text" id="CountryInput" class="input-search" placeholder="الدولة التي تريد معرفة إحصائياتها">
-                <input type="button" class="button-search" onclick="TR7L();" value="إبحث">
-              </div>
+      <div class="container-cl" style="padding-right: 0%">
+        <!-- Corona Live Feed -->
+        <div class="corner-card_global" style="z-index: 1">
+          <div class="title">
+            <!-- <img id="cr_flag" src="./assets/" alt="Avatar"> -->
+            <h3>حالات كوفيد-19 العالمية لليوم</h3>
+          </div>
+          <div class="line-ver"></div>
+          <div class="container">
+            <div class="numberd-info">
+              <h3>الأجمالي</h3>
+              <h4 id="gb_total">Wait..</h4>
             </div>
-        </div>
-        <div class="corner-card">
-            <div class="title">
-              <!-- <img id="cr_flag" src="./assets/" alt="Avatar"> -->
-              <h3>حالات كوفيد-19 العالمية لليوم</h3>
+            <div class="line-hr"></div>
+            <div class="numberd-info">
+              <h3>المتعافين</h3>
+              <h4 id="gb_recoverd">Wait..</h4>
             </div>
-            <div class="line-ver"></div>
-            <div class="container">
-              <div class="numberd-info">
-                <h3>الأجمالي</h3>
-                <h4 id="cr_total">0</h4>
-              </div>
-              <div class="line-hr"></div>
-              <div class="numberd-info">
-                <h3>المتعافين</h3>
-                <h4 id="cr_recoverd">0</h4>
-              </div>
-              <div class="line-hr"></div>
-              <div class="numberd-info">
-                <h3>الوفيات</h3>
-                <h4 id="cr_deaths">0</h4>
-              </div>
+            <div class="line-hr"></div>
+            <div class="numberd-info">
+              <h3>الوفيات</h3>
+              <h4 id="gb_deaths">Wait..</h4>
             </div>
           </div>
+        </div>
+        <div class="block-title">
+          <!-- Background -->
+          <div class="backgroun-title backgroun-map-light" id="map-canvas"></div>
+          <!-- Search bar -->
+          <div id="covid-container">
+            <h2>المزيد عن كوفيد-19</h2>
+            <div class="container main-title autocomplete">
+              <input type="text" id="CountryInput" class="input-search" placeholder="الدولة التي تريد معرفة إحصائياتها" />
+              <input type="button" class="button-search" onclick="TR7L();" value="إبحث" />
+            </div>
+          </div>
+        </div>
 
+        <!-- Loader -->
+        <loader id="loader_r" style="width: 75%; margin-top: 25px; display: none">
+          <div></div>
+          <h2>جاري تحميل ..</h2>
+        </loader>
+
+        <!-- Here data after the ajax request -->
+        <div id="covid_country_data" style="display: none">
+          <!-- Country tip -->
+          <div class="container" style="align-items: flex-start">
+            <div class="big-info covid-info">
+              <div class="title">
+                <i class="fas fa-lightbulb"></i>
+                مايجب عليك معرفتة قبل السفر الى <span id="cr_name_0"></span>
+              </div>
+              <p id="country_restrections">
+                <!-- Ajax automated -->
+              </p>
+            </div>
+          </div>
+          <!-- Country Counts Boxes (cards) -->
+          <div class="container" style="justify-content: space-between">
+            <div class="count-box">
+              <div class="count-title"><i class="fas fa-users"></i> المؤكدة</div>
+              <div class="count-amount" id="cr_cases">جاري التحميل</div>
+            </div>
+            <div class="count-box">
+              <div class="count-title"><i class="fas fa-hands"></i> المتعافين</div>
+              <div class="count-amount" id="cr_recoverd">جاري التحميل</div>
+            </div>
+            <div class="count-box">
+              <div class="count-title"><i class="fas fa-procedures"></i> الحرجة</div>
+              <div class="count-amount" id="cr_critcal">جاري التحميل</div>
+            </div>
+            <div class="count-box">
+              <div class="count-title"><i class="fas fa-feather-alt"></i> الوفيات</div>
+              <div class="count-amount" id="cr_deaths">جاري التحميل</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Covid tips -->
+        <div class="container" id="covid_tips" style="justify-content: space-between; flex-direction: column">
+          <div class="container">
+            <div class="count-box covid-tip">
+              <div class="count-title"><img width="35" src="./assets/images/icons/ruler.png" /></div>
+              <span class="count-amount">أَبْقِ مسافة 6 أقدام (2 متر) بينك وبين الآخرين قدر الإمكان. </span>
+            </div>
+            <div class="count-box covid-tip">
+              <div class="count-title"><img width="35" src="./assets/images/icons/icons8-helping-hand-48.png" /></div>
+              <span class="count-amount">تجنب الاحتكاك بأي مريض</span>
+            </div>
+            <div class="count-box covid-tip">
+              <div class="count-title"><img width="35" src="./assets/images/icons/icons8-do-not-touch-64.png" /></div>
+              <span class="count-amount">قلل لمس الأسطح التي تُلمَس بشكل متكرر</span>
+            </div>
+            <div class="count-box covid-tip">
+              <div class="count-title"><img width="35" src="./assets/images/icons/mask.png" /></div>
+              <span class="count-amount">ارتدِ كمامة مقاشية</span>
+            </div>
+            <div class="count-box covid-tip">
+              <div class="count-title"><img width="35" src="./assets/images/icons/icons8-soap-40.png" /></div>
+              <span class="count-amount">نظّف يديك بشكل متكرر. وهذا مهم خاصةً بعد الذهاب إلى الحمام</span>
+            </div>
+          </div>
+          <div class="big-info covid-info">
+            <div class="title">
+              <i class="fas fa-lightbulb"></i>
+              نصائح اثناء السفر خلال فترة الوباء
+            </div>
+            <p>
+              حافظ على صحتك خلال السفر توصي مراكز المكافحة على الأمراض والوقاية منها (CDC) باتباع الخطوات التالية لحماية نفسك والآخرين عند السفر: أَبْقِ مسافة 6 أقدام (2 متر) بينك وبين الآخرين قدر الإمكان. تجنب الاحتكاك بأي مريض قلل لمس الأسطح التي
+              تُلمَس بشكل متكرر، مثل الدرابزين وأزرار المصعد والأجهزة اللمسية في المَتاجِر. إذا اضطررت للمس تلك الأسطح، فاستخدم معقم يدين أو اغسل يديك بعد ذلك. ارتدِ كمامة قماشية. تجنب لمس عينيك وأنفك وفمك. غطِّ أنفك وفمك عند السعال والعطس. نظّف يديك
+              بشكل متكرر. وهذا مهم خاصةً بعد الذهاب إلى الحمام، وقبل تناول الطعام، وبعد السعال أو العطس أو تنظيف الأنف. يجب غسل اليدين بشكل متكرر بالصابون والماء، على أن لا تقل مدة الغسل عن 20 ثانية. إذا لم يتوفر الماء والصابون، يُستخدَم معقم يدوي
+              يحتوي على كحول بنسبة 60% على الأقل. دع المعقم الكحولي يغطي جميع مناطق يديك، وافرك يديك إلى أن تشعر بأن المعقم قد جف.
+            </p>
+          </div>
         </div>
       </div>
     </main>
@@ -193,5 +373,166 @@
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/countries.js"></script>
     <script src="./assets/js/forms.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB73ruVbZGoirOrvFzCec4T92XZWxFdcic"></script>
+    <script>
+      let map;
+
+      let getCovidStatus = function (country = "global") {
+        return new Promise(function (resolve) {
+          ajaxRequest("action=covid19&target=" + country, false).then(function (data) {
+            if (data) {
+              let respone = $.parseJSON(data);
+              resolve(respone);
+            } else {
+              resolve(false);
+            }
+          });
+        });
+      };
+
+      function TR7L() {
+        let contreyInput = document.getElementById("CountryInput").value;
+        if (contreyInput != "") {
+          let countreyCode = searchCountry(contreyInput);
+          search_apply(countreyCode["code"], countreyCode["name"]);
+        } else {
+          //Alert empty
+          alert("الرجاء ملء الفراغات");
+        }
+      }
+
+      async function initGlobalStatus() {
+        let job = await getCovidStatus("global");
+        document.getElementById("gb_total").innerHTML = job["result"]["confirmed"];
+        document.getElementById("gb_recoverd").innerHTML = job["result"]["recovered"];
+        document.getElementById("gb_deaths").innerHTML = job["result"]["deaths"];
+      }
+
+      async function search_apply(code, name) {
+        map.setZoom(4);
+        document.getElementById("loader_r").style.display = "flex";
+        document.getElementById("covid_tips").style.display = "none";
+        let job = await getCovidStatus(code);
+        if (job["overview"]["status"] == true) {
+          document.getElementById("country_restrections").innerHTML = job["restrections"];
+
+          document.getElementById("cr_cases").innerHTML = job["covid"]["result"]["confirmed"];
+          document.getElementById("cr_recoverd").innerHTML = job["covid"]["result"]["recovered"];
+          document.getElementById("cr_critcal").innerHTML = job["covid"]["result"]["critical"];
+          document.getElementById("cr_deaths").innerHTML = job["covid"]["result"]["deaths"];
+
+          document.getElementById("cr_name_0").innerHTML = name;
+
+          document.getElementById("covid_country_data").style.display = "block";
+
+          map.setZoom(6);
+          map.setCenter(new google.maps.LatLng(job["overview"]["result"]["latitude"], job["overview"]["result"]["longitude"]));
+        } else {
+          //Country info not founded
+          alert("عذرا لم يتم العثور على الدولة");
+          document.getElementById("covid_tips").style.display = "block";
+        }
+        document.getElementById("loader_r").style.display = "none";
+      }
+
+      $(document).ready(function () {
+        initGoogleMaps();
+        initGlobalStatus();
+      });
+
+      function initGoogleMaps() {
+        let mapOptions = {
+          zoom: 4,
+          minZoom: 3,
+          center: new google.maps.LatLng(29.3117, 47.4818),
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          disableDefaultUI: true,
+          styles: [
+            { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+            { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+            { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+            {
+              featureType: "administrative.locality",
+              elementType: "labels.text.fill",
+              stylers: [{ color: "#d59563" }],
+            },
+            {
+              featureType: "poi",
+              elementType: "labels.text.fill",
+              stylers: [{ color: "#d59563" }],
+            },
+            {
+              featureType: "poi.park",
+              elementType: "geometry",
+              stylers: [{ color: "#263c3f" }],
+            },
+            {
+              featureType: "poi.park",
+              elementType: "labels.text.fill",
+              stylers: [{ color: "#6b9a76" }],
+            },
+            {
+              featureType: "road",
+              elementType: "geometry",
+              stylers: [{ color: "#38414e" }],
+            },
+            {
+              featureType: "road",
+              elementType: "geometry.stroke",
+              stylers: [{ color: "#212a37" }],
+            },
+            {
+              featureType: "road",
+              elementType: "labels.text.fill",
+              stylers: [{ color: "#9ca5b3" }],
+            },
+            {
+              featureType: "road.highway",
+              elementType: "geometry",
+              stylers: [{ color: "#746855" }],
+            },
+            {
+              featureType: "road.highway",
+              elementType: "geometry.stroke",
+              stylers: [{ color: "#1f2835" }],
+            },
+            {
+              featureType: "road.highway",
+              elementType: "labels.text.fill",
+              stylers: [{ color: "#f3d19c" }],
+            },
+            {
+              featureType: "transit",
+              elementType: "geometry",
+              stylers: [{ color: "#2f3948" }],
+            },
+            {
+              featureType: "transit.station",
+              elementType: "labels.text.fill",
+              stylers: [{ color: "#d59563" }],
+            },
+            {
+              featureType: "water",
+              elementType: "geometry",
+              stylers: [{ color: "#17263c" }],
+            },
+            {
+              featureType: "water",
+              elementType: "labels.text.fill",
+              stylers: [{ color: "#515c6d" }],
+            },
+            {
+              featureType: "water",
+              elementType: "labels.text.stroke",
+              stylers: [{ color: "#17263c" }],
+            },
+          ],
+          backgroundColor: "none",
+        };
+        map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        $("#map-canvas").css("position", "fixed !important");
+      }
+      autocomplete(document.getElementById("CountryInput"), countries);
+    </script>
   </body>
 </html>
