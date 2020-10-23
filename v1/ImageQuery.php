@@ -4,8 +4,9 @@
     Description : Translate Query to photo from google place api
 */
 if (isset($_GET["q"])) {
+	require('config.php');   
 	require('trhalClass.php');
-	$TRHAL = new Trhal ("AIzaSyB73ruVbZGoirOrvFzCec4T92XZWxFdcic","$23423");
+	$TRHAL = new Trhal ($TRHAL_SETTINGS["GOOGLE_MAPS_API"],$TRHAL_SETTINGS["RAPID_API_KEY"]);
 	$countryName = $_GET["q"];
 	$width = $_GET["w"] ;
 	$height = $_GET["h"];

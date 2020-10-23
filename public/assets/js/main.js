@@ -3,11 +3,11 @@
     Description : project for code.kw ( TRHAL ) 
     About this file : functionality of the trhal site ( main function only ) 
     ajax request in their own page 
-    Other : --> i uploaded TRHALCLASSES on private server 
-    { https://trhal-api.com/TRHALCLASSES/ }
+    Other : --> i uploaded TRHALCLASSES(v1) on private server 
+    { https://trhal-api.com/v1/ }
     use it if you don't have php server
 */
-var API_URL = "https://trhal-api.com/TRHALCLASSES/";
+var API_URL = "https://trhal-api.com/v1/";
 
 /* ------------------------------------  Init Page - on load ------------------------------------ */
 $(document).ready(function () {

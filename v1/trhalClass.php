@@ -37,8 +37,11 @@ class Trhal {
 		}
 	}
 	
-	function rapidRequest($url,$headers = array("x-rapidapi-host: ","x-rapidapi-key: 79506305c3msha71fe44556e17dap17e666jsn387881adb275")) {
+	function rapidRequest($url,$headers = null) {
 		if ($url != "" || !empty ($url) ) {
+			if ($headers == null ) {
+				$headers = array("x-rapidapi-host: ","x-rapidapi-key: " . $this->RAPIDAPI_API_KEY);
+			}
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL,"$url");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -106,6 +109,36 @@ class Trhal {
 			return array("status"=>false,"msg"=>"One of the argument is empty") ;
 		}					
 	}
+	
+	
+	function getCovid19_Restrecionts ($target) {
+		if ($target != "" || !empty ($target) ) {
+			$call = $this->curlRequest("https://www.trackcorona.live/api/travel");
+			$jsonIt = json_decode($call,true);
+			foreach ($jsonIt["data"] as $country) {
+				if ($country["location"] === $target) {
+					return $country["data"];
+				}
+			}
+		} else {
+			return array("status"=>false,"msg"=>"One of the argument is empty") ;
+		}					
+	}
+
+	function getGlobalCovid19 () {
+		$call = $this->rapidRequest("https://covid-19-data.p.rapidapi.com/totals?format=json");
+		$jsonIt = json_decode($call,true);
+		return array("status"=>true,"result"=>
+		array (
+			"confirmed" => $jsonIt[0]["confirmed"],
+			"recovered" => $jsonIt[0]["recovered"],
+			"critical" => $jsonIt[0]["critical"],
+			"deaths" => $jsonIt[0]["deaths"]
+			)
+		) ;
+	}
+	
+	
 	
 	
 	/* Place - Attraction Country Methods */

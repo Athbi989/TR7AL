@@ -3,8 +3,10 @@
     App : TRHAL (APi)
     Description : Simple requests page handler 
 */
+header('Access-Control-Allow-Origin: *'); 
+require('config.php');   
 require('trhalClass.php');   
-$TRHAL = new Trhal ("AIzaSyB73ruVbZGoirOrvFzCec4T92XZWxFdcic","1qsad");
+$TRHAL = new Trhal ($TRHAL_SETTINGS["GOOGLE_MAPS_API"],$TRHAL_SETTINGS["RAPID_API_KEY"]);
    
 if (isset($_GET["action"])) {
     $action = $_GET["action"];
@@ -131,7 +133,7 @@ if ($action == "PointsOfInterst") {
 	if ($place["photos"][0]["photo_reference"] != "") {
 		$img = $TRHAL->getGooglePlacePhoto($place["photos"][0]["photo_reference"]);
 	} else {
-		$img =  "http://103.105.50.163/TRHALCLASSES/assets/notfound.png";
+		$img =  "https://trhal-api.com/TRHALCLASSES/assets/notfound.png";
 	}
 	$HTMLRespone .= '
 	<div class="card__ty1">
@@ -166,7 +168,7 @@ if ($action == "getPlace") {
 	if ($place["photos"][0]["photo_reference"] != "") {
 		$img = $TRHAL->getGooglePlacePhoto($place["photos"][0]["photo_reference"]);
 	} else {
-		$img =  "http://103.105.50.163/TRHALCLASSES/assets/notfound.png";
+		$img =  "https://trhal-api.com/TRHALCLASSES/assets/notfound.png";
 	}
 	$HTMLRespone .= '
 		<div class="card__ty2">
@@ -312,8 +314,36 @@ if ($action == "currconv") {
 		$amount = $_GET["amount"] ;
 		$job = $TRHAL->getCurrnecy ($amount,$eq) ;
 		endRequest($job) ;
+	} else {
+		die("Arg is missing !");
 	}
 }
+
+/* -------- Init COVID-19 Data  --------*/
+
+if ($action == "covid19") {
+	if (isset($_GET["target"])) {
+		$target = $_GET["target"] ;
+		if ($target == "global") {
+			$job = $TRHAL->getGlobalCovid19 () ;
+			endRequest($job) ;
+		} else {
+			$basicCountryInfo = $TRHAL->getCountry($target) ;
+			$job_covid = $TRHAL->getCovid19 ($target) ;
+			$job = $TRHAL->getCovid19_Restrecionts ($basicCountryInfo["result"]["name"]) ;
+			$respone = array (
+				"overview"=>$basicCountryInfo,
+				"covid"=>$job_covid,
+				"restrections"=>$job
+			);
+			endRequest($respone) ;
+		}
+	}
+	else {
+		die("Arg is missing !");
+	}
+}
+
 ?>
 
 
