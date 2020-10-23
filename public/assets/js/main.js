@@ -41,7 +41,7 @@ function switchPanel(avaiablePanels, visbile = null, style = "block") {
 function ajaxRequest(args, json = true) {
   //Simple Ajax request
   return $.ajax({
-    url: API_URL + "/api.php?" + args,
+    url: API_URL + "api.php?" + args,
   });
 }
 
