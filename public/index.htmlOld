@@ -164,20 +164,55 @@
           <!-- Background -->
           <div class="backgroun-title"></div>
           <div style="margin-top: -50px">
-            <div class="big-title">نعتذر !</div>
-            <div class="big-title">المشروع متوقف حاليا</div>
-            <p>
-              تم إيقاف عمل الموقع بشكل مؤقت حاليََا، بسبب انتهاء الخدمات التجريبية لبضع مصادر المعلومات الذي يتسخدمها الموقع
-              <br />
-              بأمكانك التواصل اذا وددت ان تعرف المزيد، او بأي موضوع اخر
-              <br />
-              Email : athbicode@gmail.com
-              <br />
-              Instagram : u.fd
-            </p>
+            <div class="big-title">إحصل على المعلومات بشكل</div>
+            <div class="big-title">اسرع مع ترحال</div>
+            <div class="container main-title autocomplete">
+              <input type="text" id="CountryInput" class="input-search" placeholder="اين هي وجهتك ؟" />
+              <input type="button" class="button-search" onclick="TR7L();" value="ترحل" />
+            </div>
           </div>
         </div>
         <!-- Introduction TRHAL -->
+        <div class="container" style="margin-top: 50px">
+          <div class="card-rounded cl-lightpurple">
+            <div class="card-info">
+              <div class="clx">ماهو تّرحال ؟</div>
+              منصة ترحال تساعدك على البحث اثناء تخطيطك للسفر، بحيث يوفر لك الأسعار المتوسطة للتذاكر الطياران، الفنادق والأماكن السياحية
+            </div>
+            <div class="card-img">
+              <img src="https://static.tacdn.com/img2/brand/trips/image_trips_card_medium.png" alt="" srcset="" />
+            </div>
+          </div>
+          <div class="card-rounded cl-niceone" style="margin-right: 15px">
+            <div class="card-info">
+              <div class="clx">ما المميز ؟</div>
+              يوفر عنك العناء بالبحث ويختصر لك الطريق، بالطبق لايشمل كل شي ولكن الأهم
+            </div>
+            <div class="card-img">
+              <img src="https://static.tacdn.com/img2/brand/trips/image_trips_card_medium.png" alt="" srcset="" />
+            </div>
+          </div>
+        </div>
+        <div class="container" style="margin-top: 50px">
+          <div class="card-rounded cl-darkblue">
+            <div class="card-info">
+              <div class="clx">السفر امان حاليا ؟</div>
+              هنالك بعض القيود والمتطلبات التي يجب عليك الإلتزام بها قبل السفر، بسبب جائحة كورونا ولكن لاتقلق قد كتبنا جميع المعلومات المهمة بصفحة كورونا على القائمة
+            </div>
+            <div class="card-img">
+              <img src="https://static.tacdn.com/img2/brand/trips/image_trips_card_medium.png" alt="" srcset="" />
+            </div>
+          </div>
+          <div class="card-rounded" style="margin-right: 15px">
+            <div class="card-info">
+              <div class="clx">من مبرمج الموقع ؟</div>
+              تم بناء الموقع بشكل كامل من الصفر وبقدر الإمكان لم استخدم اي مصادر او مكتبات خارجيه جوهرية على التصميم او أليه عمل الموقع Athbi @Kuwait Barmej Final Project
+            </div>
+            <div class="card-img">
+              <img src="https://static.tacdn.com/img2/brand/trips/image_trips_card_medium.png" alt="" srcset="" />
+            </div>
+          </div>
+        </div>
       </div>
     </main>
     <script src="./assets/js/jquery.min.js"></script>
@@ -185,9 +220,30 @@
     <script src="./assets/js/countries.js"></script>
     <script src="./assets/js/forms.js"></script>
     <script>
-      $("a").click(function (event) {
-        event.preventDefault();
-        retrun;
+      autocomplete(document.getElementById("CountryInput"), countries);
+      function TR7L() {
+        let contreyInput = document.getElementById("CountryInput").value;
+        if (contreyInput != "") {
+          let countreyCode = searchCountry(contreyInput);
+          console.log(countreyCode);
+          if (countreyCode != false) {
+            window.location = "./view.html?id=" + countreyCode["code"];
+          } else {
+            //Unkown country
+            alert("الدولة غير معرفة");
+          }
+        } else {
+          //Alert empty
+          alert("الرجاء ملء الفراغات");
+        }
+      }
+
+      var input = document.getElementById("CountryInput");
+      input.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          TR7L();
+        }
       });
     </script>
   </body>
